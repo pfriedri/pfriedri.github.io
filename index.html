@@ -1,326 +1,1049 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<!--HEAD-->
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Paul Friedrich - Homepage</title>
+    <meta charset="UTF-8">
     <meta name="author" content="Paul Friedrich">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="stylesheet.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paul Friedrich</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/js/all.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌐</text></svg>">
+    <style>
+        :root {
+            --primary-color: #1a5276;
+            --secondary-color: #2980b9;
+            --accent-color: #3498db;
+            --text-color: #333;
+            --light-bg: #f8f9fa;
+        }
+
+        body {
+            font-family: 'Roboto', 'Helvetica Neue', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            background-color: #fff;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 2rem 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .profile {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .profile-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid white;
+            background-color: #ddd;
+        }
+
+        .profile-info {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .profile-info h1 {
+            margin: 0;
+            font-size: 2.2rem;
+        }
+
+        .profile-info p {
+            margin: 0;
+            font-size: 1.1rem;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-icons a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            background-color: white;
+            color: var(--primary-color);
+            transform: translateY(-3px);
+        }
+
+        a:link {
+            color: #1a5276;
+            background-color: transparent;
+            text-decoration: none;
+        }
+
+        a:visited {
+            color: #2980b9;
+            background-color: transparent;
+            text-decoration: none;
+        }
+
+        nav {
+            background-color: var(--secondary-color);
+            padding: 0.5rem 0;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav li {
+            margin-right: 1.5rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 0;
+            display: block;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #e0e0e0;
+        }
+
+        section {
+            padding: 0.5rem 0;
+        }
+
+        section h2 {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 0.5rem;
+        }
+
+        .about {
+            background-color: var(--light-bg);
+            text-align: justify;
+        }
+
+        .publication {
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #e0e0e0;
+            position: relative;
+        }
+
+        .publication-highlight {
+            background-color: rgba(174, 214, 241, 0.48);
+            padding: 1em;
+            border-radius: 8px;
+        }
+
+        .publication:last-child {
+            border-bottom: none;
+        }
+
+        .publication-content {
+            flex: 1;
+        }
+
+        .publication-title {
+            font-weight: 600;
+            margin-bottom: 0.2rem;
+            font-size: 1.3rem;
+        }
+
+        .publication-authors {
+            font-style: italic;
+            margin-bottom: 0.2rem;
+        }
+
+        .publication-journal {
+            color: #555;
+            margin-bottom: 0.2rem;
+        }
+
+        .publication-links {
+            margin-top: 0.8rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.7rem;
+        }
+
+        .publication-links a {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.3rem 0.7rem;
+            background-color: #f5f5f5;
+            border-radius: 4px;
+            color: var(--secondary-color);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: background-color 0.2s;
+            cursor: pointer;
+        }
+
+        .publication-links a:hover {
+            background-color: #e0e0e0;
+        }
+
+        .publication-links a.project-page {
+            background-color: var(--accent-color);
+            color: white;
+        }
+
+        .icon-spacing {
+            margin-right: 5px;
+        }
+
+        /* BibTeX dropdown styling */
+        .bibtex-dropdown {
+            display: none;
+            background-color: #f8f9fa;
+            border: 1px solid #e0e0e0;
+            border-radius: 6px;
+            padding: 1rem;
+            margin-top: 1rem;
+            position: relative;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .bibtex-content {
+            font-family: monospace;
+            background-color: #f0f0f0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 1rem;
+            white-space: pre;
+            margin-bottom: 1rem;
+            max-height: 200px;
+            overflow-y: auto;
+            overflow-x: auto;
+        }
+
+        .copy-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background-color: var(--accent-color);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: background-color 0.2s;
+        }
+
+        .copy-button:hover {
+            background-color: var(--secondary-color);
+        }
+
+        .copy-success {
+            display: none;
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+            z-index: 1000;
+            animation: fadeInOut 2s ease-in-out;
+        }
+
+        .copyright {
+            text-align: right;
+            font-size: 0.85rem;
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        @keyframes fadeInOut {
+            0% { opacity: 0; }
+            20% { opacity: 1; }
+            80% { opacity: 1; }
+            100% { opacity: 0; }
+        }
+
+        .github-repos {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .repo-card {
+            border: 1px solid #e1e4e8;
+            border-radius: 6px;
+            padding: 1rem;
+            background-color: white;
+            transition: transform 0.2s, box-shadow 0.2s;
+            height: 90%;
+            display: flex;
+            flex-direction: column;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .repo-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .repo-card h3 {
+            margin-top: 0;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+            color: var(--primary-color);
+        }
+
+        .repo-card p {
+            margin-bottom: 0.3rem;
+            color: #586069;
+            flex-grow: 1;
+        }
+
+        .repo-meta {
+            display: flex;
+            gap: 1rem;
+            font-size: 0.85rem;
+            color: #586069;
+        }
+
+        .repo-meta div {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .news-item {
+            margin-bottom: 0.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .news-item:last-child {
+            border-bottom: none;
+        }
+
+        .news-date {
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 1rem 0;
+            margin-top: 2rem;
+        }
+
+        .contact-info {
+            margin-bottom: 1rem;
+        }
+
+        .footer-social-links {
+            margin-top: 1rem;
+        }
+
+        .footer-social-links a {
+            display: inline-block;
+            margin-right: 1rem;
+            color: white;
+            text-decoration: none;
+        }
+
+        .footer-social-links a:hover {
+            text-decoration: underline;
+        }
+
+        /* Copy success message */
+        .copy-success {
+            display: none;
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+            z-index: 1000;
+            animation: fadeInOut 2s ease-in-out;
+        }
+
+        @keyframes fadeInOut {
+            0% { opacity: 0; }
+            20% { opacity: 1; }
+            80% { opacity: 1; }
+            100% { opacity: 0; }
+        }
+
+        @media (max-width: 768px) {
+            header .container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .profile {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .social-icons {
+                justify-content: center;
+            }
+
+
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            nav li {
+                margin: 0.5rem 0;
+            }
+
+            .github-repos {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
-
-<!--BODY-->
 <body>
-    <table style="width:100%;max-width:1000px;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;text-align:justify;">
-        <tbody>
-            <tr style="padding:0px">
-                <td style="padding:0px">
+<header>
+    <div class="container">
+        <div class="profile">
+            <img src="/images/profile.jpeg" alt="Profile Photo" class="profile-image">
+            <div class="profile-info">
+                <h1>Paul Friedrich</h1>
+                <p>PhD Student</p>
+                <p>Center for medical Image Analysis & Navigation (CIAN)</p>
+                <p>University of Basel</p>
 
-                    <!--INTRODUCTION/HEADER-->
-                    <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
-                        <tbody>
-                            <tr style="padding:0px">
-                                <td style="padding:2.5%;width:63%;vertical-align:middle">
-                                    <p style="text-align:center">
-                                        <name>Paul Friedrich</name>
-                                    </p>
-                                    <p>I am a third year PhD student at the <a href="https://dbe.unibas.ch/en/cian/">Center for medical Image Analysis and Navigation (CIAN)</a> of the <a href="https://www.unibas.ch/en.html">University of Basel</a>. My work
-                                        is supervised by <a href="https://dbe.unibas.ch/en/persons/philippe-claude-cattin/">Philippe Cattin</a> and <a href="https://dbe.unibas.ch/en/research/regenerative-surgery/swiss-mam-medical-additive-manufacturing-research-group/group-members/florian-m-thieringer/">Florian Thieringer</a>.
-                                        I hold a bachelor's and a master's degree in biomedical engineering, both of which I finished best in class.
-                                    </p>
-                                    <p style="text-align:center">
-                                        <a href="mailto:paul.friedrich@unibas.ch">Email</a> &nbsp/&nbsp
-                                        <a href="https://scholar.google.com/citations?user=jz_CjHYAAAAJ&hl=de">Google Scholar</a> &nbsp/&nbsp
-                                        <a href="https://github.com/pfriedri/">Github</a> &nbsp/&nbsp
-                                        <a href="https://orcid.org/0000-0003-3653-5624">ORCID</a> &nbsp/&nbsp
-                                        <a href="https://huggingface.co/pfriedri">HuggingFace</a> &nbsp/&nbsp
-                                        <a href="https://linkedin.com/in/pfriedri">LinkedIn</a>
-                                    </p>
-                                </td>
-                                <td style="padding:5%;width:40%;max-width:40%">
-                                    <a href="images/PaulFriedrich.jpeg"><img style="width:100%;max-width:100%" alt="profile photo" src="images/PaulFriedrichCirc.jpg" class="hoverZoomLink"></a>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+                <!-- Added social icons -->
+                <div class="social-icons">
+                    <a href="https://scholar.google.com/citations?user=jz_CjHYAAAAJ&hl=en" title="Google Scholar"><i class="fas fa-graduation-cap fa-lg icon"></i></a>
+                    <a href="https://github.com/pfriedri" title="GitHub"><i class="fab fa-github fa-lg"></i></a>
+                    <a href="https://linkedin.com/in/pfriedri" title="LinkedIn"><i class="fab fa-linkedin fa-lg"></i></a>
+                    <a href="https://orcid.org/0000-0003-3653-5624" title="ORCID"><i class="fab fa-orcid fa-lg"></i></a>
+                    <a href="mailto:paul.friedrich@unibas.ch" title="Email"><i class="fas fa-envelope fa-lg"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
 
-                    <!--NEWS-->
-                    <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;text-align:justify;">
-                        <tr>
-                            <td style="padding:20px;width:100%;vertical-align:middle">
-                                <heading>News</heading>
-                                    <li style="margin-bottom: 5px; margin-top: 5px;"><strong>[02/2025]</strong> Our paper <a href="https://arxiv.org/abs/2502.14401"><strong>MedFuncta: Modality-Agnostic Representations Based on Efficient Neural Fields</strong></a> is available on arXiv.</li>
-                                    <li style="margin-bottom: 5px;"><strong>[12/2024]</strong> Our paper <a href="https://link.springer.com/article/10.1007/s11548-025-03343-y"><strong>Generating 3D Pseudo-Healthy Knee MR Images to Support Trochleoplasty Planning</strong></a> is early-accepted at <strong>IPCAI 2025</strong>.</li>
-                                    <li style="margin-bottom: 5px;"><strong>[11/2024]</strong> Our paper <a href="https://arxiv.org/abs/2411.17203"><strong>cWDM: Conditional Wavelet Diffusion Models for Cross-Modality 3D Medical Image Synthesis</strong></a> is available on arXiv.</li>
-                                    <li style="margin-bottom: 5px;"><strong>[10/2024]</strong> A preprint of our review book chapter <a href=https://arxiv.org/abs/2410.17664><strong>Deep Generative Models for 3D Medical Image Synthesis</strong></a> is available on arXiv.</li>
-                                    <li style="margin-bottom: 5px;"><strong>[07/2024]</strong> Our paper <a href=https://pfriedri.github.io/wdm-3d-io><strong>WDM: 3D Wavelet Diffusion Models for High-Resolution Medical Image Synthesis</strong></a> is accepted at <strong>DGM4MICCAI 2024</strong>.</li>
-                                    <li style="margin-bottom: 5px;"><strong>[07/2024]</strong> Our paper <a href=https://arxiv.org/abs/2408.08647><strong>Modeling the Neonatal Brain Development Using Implicit Neural Representations</strong></a> is accepted at <strong>PRIME@MICCAI 2024</strong>.</li>
-                                    <li style="margin-bottom: 5px;"><strong>[07/2024]</strong> Our paper <a href=https://arxiv.org/abs/2403.14499><strong>Denoising Diffusion Models for 3D Healthy Brain Tissue Inpainting</strong></a> is accepted at <strong>DGM4MICCAI 2024</strong>.</li>
-                                    <li style="margin-bottom: 5px;"><strong>[06/2024]</strong> Our paper <a href=https://arxiv.org/abs/2403.11667><strong>Binary Noise for Binary Tasks: Masked Diffusion Models for Unsupervised Anomaly Detection</strong></a> is accepted at <strong>MICCAI 2024</strong>.</li> 
-                                    <li style="margin-bottom: 5px;"><strong>[12/2023]</strong> I contributed to the <a href="https://medshapenet.ikim.nrw"><strong>MedShapeNet</strong></a> project - a large large-scale dataset of 3D medical shapes for computer vision.</li>
-                                    <li style="margin-bottom: 5px;"><strong>[03/2023]</strong> Our paper <a href="https://pfriedri.github.io/pcdiff-implant-io"><strong>Point Cloud Diffusion Models for Automatic Implant Generation</strong></a> got accepted at <strong>MICCAI 2023</strong>.</li>
-                            </td>
-                        </tr>
-                    </table>
+<nav>
+    <div class="container">
+        <ul>
+            <li><a href="#about" style="color:white;">About</a></li>
+            <li><a href="#news" style="color:white;">News</a></li>
+            <li><a href="#publications" style="color:white;">Publications</a></li>
+            <li><a href="#research" style="color:white;">GitHub Projects</a></li>
+            <li><a href="#talks" style="color:white;">Invited Talks</a></li>
+            <li><a href="#academic-services" style="color:white;">Academic Services</a></li>
+            <li><a href="#contact" style="color:white;">Contact</a></li>
+        </ul>
+    </div>
+</nav>
 
-                    <!--RESEARCH-->
-                    <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;text-align:justify;">
-                        <tbody>
-                            <tr>
-                                <td style="padding:20px;width:100%;vertical-align:middle">
-                                    <heading>Research</heading>
-                                    <p> I'm interested in medical image analysis, computer vision, 3D deep learning and generative models. My current research is part of the <a href="https://dbe.unibas.ch/en/research/flagship-project-miracle/">MIRACLE II</a> project and focuses on conditional shape generation and manipulation tasks as well as (un)conditional 3D medical image generation. I'm particularly interested in different types of 3D data representations, including voxel grids, point clouds, meshes, triplanes, or neural implicit representations.</p>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+<section class="about" id="about">
+    <div class="container">
+        <h2>About Me</h2>
+        <p>
+            I am a third year PhD student at the <a href="https://dbe.unibas.ch/en/cian/">Center for medical Image Analysis and Navigation (CIAN)</a> of the <a href="https://www.unibas.ch/en.html">University of Basel</a>. My work
+            is supervised by <a href="https://dbe.unibas.ch/en/persons/philippe-claude-cattin/">Philippe Cattin</a> and <a href="https://dbe.unibas.ch/en/research/regenerative-surgery/swiss-mam-medical-additive-manufacturing-research-group/group-members/florian-m-thieringer/">Florian Thieringer</a>.
+        </p>
+        <p>
+            I'm interested in medical image analysis, implicit neural representations, 3D deep learning and generative modeling. My current research is part of the <a href="https://dbe.unibas.ch/en/research/flagship-project-miracle/">MIRACLE II</a> project and focuses on conditional shape generation and manipulation tasks as well as (un)conditional 3D medical image generation.
+            I'm particularly interested in different types of 3D data representations, including voxel grids, point clouds, meshes, triplanes, or neural implicit representations.
+        </p>
 
-                    <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;text-align:justify;">
 
-                        <!--PAPER_10--> 
-                        <tr style="padding:0px"; bgcolor="#ffffd0">
-                            <td style="padding:2.5%;width:34%;max-width:34%">
-                                <a href="https://pfriedri.github.io/medfuncta-io"><img style="width:100%;max-width:100%" alt="profile photo" src="images/MedFuncta.png" class="hoverZoomLink"></a>
-                            </td>
+    </div>
+</section>
 
-                            <td style="padding:2.5%;width:66%;vertical-align: middle;">
-                                <a href="https://pfriedri.github.io/medfuncta-io">
-                                    <papertitle>MedFuncta: Modality-Agnostic Representations Based on Efficient Neural Fields</papertitle>
-                                </a>
-                                <br><strong>Paul Friedrich</strong>, Florentin Bieder, Philippe C. Cattin
-                                <br><em>arXiv preprint, 2025</em>
-                                <br><a href="https://pfriedri.github.io/medfuncta-io">Project page</a> / <a href="https://github.com/pfriedri/medfuncta">Code</a> / <a href="https://arxiv.org/abs/2502.14401">arXiv</a>
-                                <p> This paper presents MedFuncta, a modality-agnostic continuous data representation based on efficient meta-learned neural fields.</p>
-                            </td>
-                        </tr>
-                       
-                        <!--PAPER_09--> 
-                        <tr style="padding:0; background-color:#ffffff;">
-                            <td style="padding:2.5%; width:34%; max-width:34%;">
-                                <a href="https://wehrlimi.github.io/gen3d-ph-kneemri/">
-                                    <img src="images/pseudo_healthy_knee.png" alt="profile photo" style="width:100%; max-width:100%;" class="hoverZoomLink">
-                                </a>
-                            </td>
-                            <td style="padding:2.5%; width:66%; vertical-align:middle;">
-                                <a href="https://wehrlimi.github.io/gen3d-ph-kneemri/">
-                                    <papertitle>Generating 3D Pseudo-Healthy Knee MR Images to Support Trochleoplasty Planning</papertitle>
-                                </a>
-                                <br>Michael Wehrli, Alicia Durrer, <strong>Paul Friedrich</strong>, Volodimir Buchakchiyskiy, Marcus Mumme, Edwin Li, Gyozo Lehoczky, Carol C. Hasler, Philippe C. Cattin
-                                <br><em>IPCAI (Early Accepted) |  International Journal of Computer Assisted Radiology and Surgery, 2025</em>
-                                <br>
-                                <a href="https://wehrlimi.github.io/gen3d-ph-kneemri/">Project Page</a> /
-                                <a href="https://github.com/wehrlimi/Generate-Pseudo-Healthy-Knee-MRI">Code</a> /  
-                                <a href="https://arxiv.org/abs/2412.09962">arXiv</a> /
-                                <a href="https://link.springer.com/article/10.1007/s11548-025-03343-y">Paper</a>
-                                <p>A method to support surgical planning for trochleoplasty by generating pseudo-healthy knee MR images.</p>
-                            </td>
-                        </tr>
+<section id="news">
+    <div class="container">
+        <h2>News & Updates</h2>
 
-                        <!--PAPER_08--> 
-                        <tr style="padding:0; background-color:#ffffd0;">
-                            <td style="padding:2.5%; width:34%; max-width:34%;">
-                                <a href="https://arxiv.org/abs/2411.17203">
-                                    <img src="images/cWDM.png" alt="profile photo" style="width:100%; max-width:100%;" class="hoverZoomLink">
-                                </a>
-                            </td>
-                            <td style="padding:2.5%; width:66%; vertical-align:middle;">
-                                <a href="https://arxiv.org/abs/2411.17203">
-                                    <papertitle>cWDM: Conditional Wavelet Diffusion Models for Cross-Modality 3D Medical Image Synthesis</papertitle>
-                                </a>
-                                <br><strong>Paul Friedrich</strong>, Alicia Durrer, Julia Wolleb, Philippe C. Cattin
-                                <br><em>arXiv preprint, 2024</em>
-                                <br>
-                                <a href="https://github.com/pfriedri/cwdm">Code</a> / 
-                                <a href="https://huggingface.co/pfriedri/cwdm">Models</a> / 
-                                <a href="https://arxiv.org/abs/2411.17203">arXiv</a>
-                                <p>A conditional wavelet diffusion model for solving paired image-to-image translation tasks on high-resolution medical volumes.</p>
-                            </td>
-                        </tr>
+        <div class="news-item">
+            <div class="news-date">February, 2025</div>
+            <h3>New Preprint</h3>
+            <p>
+                Our paper <a href="https://pfriedri.github.io/medfuncta-io/">MedFuncta: Modality-Agnostic Representations Based on Efficient Neural Fields</a> is available on arXiv.
+                We introduce a modality agnostic continuous data representation based on meta-learned neural fields (NFs) and show how NFs can be generalized from single instances to large datasets.
+                We further demonstrate that we can solve relevant downstream tasks by applying nerual networks to this permutation-equivariant functional representation.
+            </p>
+        </div>
+
+        <div class="news-item">
+            <div class="news-date">March, 2025</div>
+            <h3>Journal Paper Published</h3>
+            <p>
+                Our paper <a href="https://link.springer.com/article/10.1007/s11548-025-03343-y">Generating 3D Pseudo-Healthy Knee MR Images to Support Trochleoplasty Planning</a> which has previously been early-accepted to IPCAI has been published in the International Journal of Computer Assisted Radiology and Surgery.
+            </p>
+        </div>
+
+        <div class="news-item">
+            <div class="news-date">December, 2024</div>
+            <h3>Book Chapter Published</h3>
+            <p>
+                Our review chapter <a href="https://link.springer.com/chapter/10.1007/978-3-031-80965-1_13">Deep Generative Models for 3D Medical Image Synthesis</a> has been published in Generative Machine Learning Models in Medical Image Computing.
+                We review deep generative models (VAEs, GANs, and DDMs) for 3D medical image synthesis, covering basic principles, advances, and application for relevant downstream tasks.
+                The chapter also addresses evaluation metrics for image fidelity, diversity, utility, and privacy.
+            </p>
+        </div>
+
+        <div id="more-news" style="display: none;">
+            <div class="news-item">
+                <div class="news-date">October, 2024</div>
+                <h3>Conference Paper Published</h3>
+                <p>
+                    Our paper <a href="https://pfriedri.github.io/wdm-3d-io/">WDM: 3D Wavelet Diffusion Models for High-Resolution Medical Image Synthesis</a> has been published.
+                    We propose a simple yet effective way of scaling 3D diffusion models to high resolutions (256 x 256 x 256 on a single 40 GB GPU) by applying Discrete Wavelet Transform for spatial dimensionality reduction.
+                </p>
+            </div>
+        </div>
+
+        <div class="show-more-container" style="text-align: center; margin-top: 20px;">
+            <button id="show-more-button" style="background-color: var(--accent-color); color: white; border: none; padding: 8px 16px; border-radius: 4px; cursor: pointer; font-size: 0.9rem;">Show more</button>
+        </div>
+    </div>
+</section>
+
+<section id="publications">
+    <div class="container">
+        <h2>Publications</h2>
+        <p>A collection of my published research articles. First-author contributions are <span style="background-color: #aed6f1;border-radius: 3px;padding: 2px 4px;">highlighted</span>.</p>
+
+        <div class="publication">
+            <div class="publication-content publication-highlight">
+                <div class="publication-title">MedFuncta: Modality-Agnostic Representations Based on Efficient Neural Fields</div>
+                <div class="publication-authors"><b>Paul Friedrich</b>, Florentin Bieder, Philippe C. Cattin</div>
+                <div class="publication-journal">arXiv preprint, 2025</div>
+                <div class="publication-links">
+                    <a href="https://pfriedri.github.io/medfuncta-io/" class="project-page"><i class="fas fa-globe icon-spacing"></i>Project Page</a>
+                    <a href="https://arxiv.org/abs/2502.14401"><i class="fas fa-file-pdf icon-spacing"></i> PDF</a>
+                    <a href="https://arxiv.org/abs/2502.14401"><i class="ai ai-arxiv icon-spacing"></i> arXiv</a>
+                    <a href="https://github.com/pfriedri/medfuncta/"><i class="fab fa-github icon icon-spacing"> </i> Code</a>
+                    <a class="bibtex-button" data-publication="medfuncta"><i class="fas fa-quote-right icon-spacing"></i> BibTeX</a>
+                </div>
+                <div class="bibtex-dropdown" id="bibtex-medfuncta">
+                    <div class="bibtex-content">@article{friedrich2025medfuncta,
+         title={MedFuncta: Modality-Agnostic Representations Based on Efficient Neural Fields},
+         author={Friedrich, Paul and Bieder, Florentin and Cattin, Philippe C},
+         journal={arXiv preprint arXiv:2502.14401},
+         year={2025}}</div>
+                    <button class="copy-button" data-target="bibtex-medfuncta"><i class="fas fa-copy"></i> Copy BibTeX</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="publication">
+            <div class="publication-content">
+                <div class="publication-title">Generating 3D Pseudo-Healthy Knee-MR Images to Support Trochleoplasty Planning</div>
+                <div class="publication-authors">Michael Wehrli, Alicia Durrer, <b>Paul Friedrich</b>, Volodimir Buchakchiyskiy, Marcus Mumme, Edwin Li, Gyozo Lehoczky, Carol C. Hasler, Philippe C. Cattin</div>
+                <div class="publication-journal">IPCAI (Early Accepted) |  International Journal of Computer Assisted Radiology and Surgery, 2025</div>
+                <div class="publication-links">
+                    <a href="https://wehrlimi.github.io/gen3d-ph-kneemri/" class="project-page"><i class="fas fa-globe icon-spacing"></i> Project Page</a>
+                    <a href="https://link.springer.com/article/10.1007/s11548-025-03343-y"><i class="fas fa-file-pdf icon-spacing"></i> PDF</a>
+                    <a href="https://arxiv.org/abs/2412.09962"><i class="ai ai-arxiv icon-spacing"></i> arXiv</a>
+                    <a href="https://github.com/wehrlimi/Generate-Pseudo-Healthy-Knee-MRI"><i class="fab fa-github icon-spacing"></i> Code</a>
+                    <a class="bibtex-button" data-publication="knee-mr"><i class="fas fa-quote-right icon-spacing"></i> BibTeX</a>
+                </div>
+                <div class="bibtex-dropdown" id="bibtex-knee-mr">
+                    <div class="bibtex-content">@article{wehrli2025generating,
+         title={Generating 3D pseudo-healthy knee MR images to support trochleoplasty planning},
+         author={Wehrli, Michael and Durrer, Alicia and Friedrich, Paul and Buchakchiyskiy, Volodimir and Mumme, Marcus and Li, Edwin and Lehoczky, Gyozo and Hasler, Carol C and Cattin, Philippe C},
+         journal={International Journal of Computer Assisted Radiology and Surgery},
+         pages={1--8},
+         year={2025},
+         publisher={Springer}}</div>
+                    <button class="copy-button" data-target="bibtex-knee-mr"><i class="fas fa-copy"></i> Copy BibTeX</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="publication">
+            <div class="publication-content publication-highlight">
+                <div class="publication-title">Deep Generative Models for 3D Medical Image Synthesis</div>
+                <div class="publication-authors"><b>Paul Friedrich</b>, Yannik Frisch, Philippe C. Cattin</div>
+                <div class="publication-journal">Generative Machine Learning Models in Medical Image Computing, 2024</div>
+                <div class="publication-links">
+                    <a href="https://link.springer.com/chapter/10.1007/978-3-031-80965-1_13"><i class="fas fa-file-pdf icon-spacing"></i> PDF</a>
+                    <a href="https://arxiv.org/abs/2410.17664"><i class="ai ai-arxiv icon-spacing"></i> arXiv</a>
+                    <a class="bibtex-button" data-publication="dgm4medsyn"><i class="fas fa-quote-right icon-spacing"></i> BibTeX</a>
+                </div>
+                <div class="bibtex-dropdown" id="bibtex-dgm4medsyn">
+                    <div class="bibtex-content">@incollection{friedrich2024deep,
+              title={Deep generative models for 3d medical image synthesis},
+              author={Friedrich, Paul and Frisch, Yannik and Cattin, Philippe C},
+              booktitle={Generative Machine Learning Models in Medical Image Computing},
+              pages={255--278},
+              year={2024},
+              publisher={Springer}}</div>
+                    <button class="copy-button" data-target="bibtex-dgm4medsyn"><i class="fas fa-copy"></i> Copy BibTeX</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="publication">
+            <div class="publication-content publication-highlight">
+                <div class="publication-title">cWDM: Conditional Wavelet Diffusion Models for Cross-Modality 3D Medical Image Synthesis</div>
+                <div class="publication-authors"><b>Paul Friedrich</b>, Alicia Durrer, Julia Wolleb, Philippe C. Cattin</div>
+                <div class="publication-journal">arXiv preprint, 2024</div>
+                <div class="publication-links">
+                    <a href="https://arxiv.org/abs/2411.17203"><i class="fas fa-file-pdf icon-spacing"></i> PDF</a>
+                    <a href="https://arxiv.org/abs/2411.17203"><i class="ai ai-arxiv icon-spacing"></i> arXiv</a>
+                    <a href="https://github.com/pfriedri/cwdm"><i class="fab fa-github icon-spacing"></i> Code</a>
+                    <a class="bibtex-button" data-publication="cwdm"><i class="fas fa-quote-right icon-spacing"></i> BibTeX</a>
+                </div>
+                <div class="bibtex-dropdown" id="bibtex-cwdm">
+                    <div class="bibtex-content">@article{friedrich2024cwdm,
+         title={cWDM: Conditional Wavelet Diffusion Models for Cross-Modality 3D Medical Image Synthesis},
+         author={Friedrich, Paul and Durrer, Alicia and Wolleb, Julia and Cattin, Philippe C},
+         journal={arXiv preprint arXiv:2411.17203},
+         year={2024}}</div>
+                    <button class="copy-button" data-target="bibtex-cwdm"><i class="fas fa-copy"></i> Copy BibTeX</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="publication">
+            <div class="publication-content">
+                <div class="publication-title">Binary Noise for Binary Tasks: Masked Bernoulli Diffusion for Unsupervised Anomaly Detection</div>
+                <div class="publication-authors">Julia Wolleb, Florentin Bieder, <b>Paul Friedrich</b>, Peter Zhang, Alicia Durrer, Philippe C. Cattin</div>
+                <div class="publication-journal">International Conference on Medical Image Computing and Computer-Assisted Intervention (MICCAI), 2024</div>
+                <div class="publication-links">
+                    <a href="https://link.springer.com/chapter/10.1007/978-3-031-72120-5_13"><i class="fas fa-file-pdf icon-spacing"></i> PDF</a>
+                    <a href="https://arxiv.org/abs/2403.11667"><i class="ai ai-arxiv icon-spacing"></i> arXiv</a>
+                    <a href="https://github.com/JuliaWolleb/Anomaly_berdiff"><i class="fab fa-github icon icon-spacing"> </i> Code</a>
+                    <a class="bibtex-button" data-publication="berdiff"><i class="fas fa-quote-right icon-spacing"></i> BibTeX</a>
+                </div>
+                <div class="bibtex-dropdown" id="bibtex-berdiff">
+                    <div class="bibtex-content">@inproceedings{wolleb2024binary,
+                        title={Binary noise for binary tasks: Masked bernoulli diffusion for unsupervised anomaly detection},
+                        author={Wolleb, Julia and Bieder, Florentin and Friedrich, Paul and Zhang, Peter and Durrer, Alicia and Cattin, Philippe C},
+                        booktitle={International Conference on Medical Image Computing and Computer-Assisted Intervention},
+                        pages={135--145},
+                        year={2024},
+                        organization={Springer}}</div>
+                    <button class="copy-button" data-target="bibtex-berdiff"><i class="fas fa-copy"></i> Copy BibTeX</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="publication">
+            <div class="publication-content publication-highlight">
+                <div class="publication-title">WDM: 3D Wavelet Diffusion Models for High-Resolution Medical Image Synthesis</div>
+                <div class="publication-authors"><b>Paul Friedrich</b>, Julia Wolleb, Florentin Bieder, Alicia Durrer, Philippe C. Cattin</div>
+                <div class="publication-journal">MICCAI Workshop on Deep Generative Models (DGM4MICCAI), 2024</div>
+                <div class="publication-links">
+                    <a href="https://pfriedri.github.io/wdm-3d-io" class="project-page"><i class="fas fa-globe icon-spacing"></i>Project Page</a>
+                    <a href="https://link.springer.com/chapter/10.1007/978-3-031-72744-3_2"><i class="fas fa-file-pdf icon-spacing"></i> PDF</a>
+                    <a href="https://arxiv.org/abs/2402.19043"><i class="ai ai-arxiv icon-spacing"></i> arXiv</a>
+                    <a href="https://github.com/pfriedri/wdm-3d"><i class="fab fa-github icon icon-spacing"> </i> Code</a>
+                    <a href="https://youtu.be/TD3Vw2HmzM4"><i class="fab fa-youtube icon icon-spacing"> </i> Video</a>
+                    <a class="bibtex-button" data-publication="wdm"><i class="fas fa-quote-right icon-spacing"></i> BibTeX</a>
+                </div>
+                <div class="bibtex-dropdown" id="bibtex-wdm">
+                    <div class="bibtex-content">@inproceedings{friedrich2024wdm,
+                        title={Wdm: 3d wavelet diffusion models for high-resolution medical image synthesis},
+                        author={Friedrich, Paul and Wolleb, Julia and Bieder, Florentin and Durrer, Alicia and Cattin, Philippe C},
+                        booktitle={MICCAI Workshop on Deep Generative Models},
+                        pages={11--21},
+                        year={2024},
+                        organization={Springer}}</div>
+                    <button class="copy-button" data-target="bibtex-wdm"><i class="fas fa-copy"></i> Copy BibTeX</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="publication">
+            <div class="publication-content">
+                <div class="publication-title">Modeling the Neonatal Brain Development Using Implicit Neural Representations</div>
+                <div class="publication-authors">Florentin Bieder, <b>Paul Friedrich</b>, Hélène Corbaz, Alicia Durrer, Julia Wolleb, Philippe C. Cattin</div>
+                <div class="publication-journal">International Workshop on PRedictive Intelligence In MEdicine (PRIME @ MICCAI), 2024</div>
+                <div class="publication-links">
+                    <a href="https://florentinbieder.github.io/Neonatal-Development-INR/" class="project-page"><i class="fas fa-globe icon-spacing"></i>Project Page</a>
+                    <a href="https://link.springer.com/chapter/10.1007/978-3-031-74561-4_1"><i class="fas fa-file-pdf icon-spacing"></i> PDF</a>
+                    <a href="https://arxiv.org/abs/2408.08647"><i class="ai ai-arxiv icon-spacing"></i> arXiv</a>
+                    <a href="https://github.com/FlorentinBieder/Neonatal-Development-INR"><i class="fab fa-github icon icon-spacing"> </i> Code</a>
+                    <a class="bibtex-button" data-publication="brainprog"><i class="fas fa-quote-right icon-spacing"></i> BibTeX</a>
+                </div>
+                <div class="bibtex-dropdown" id="bibtex-brainprog">
+                    <div class="bibtex-content">@inproceedings{bieder2024modeling,
+               title={Modeling the Neonatal Brain Development Using Implicit Neural Representations},
+               author={Bieder, Florentin and Friedrich, Paul and Corbaz, H{\'e}l{\`e}ne and Durrer, Alicia and Wolleb, Julia and C. Cattin, Philippe},
+               booktitle={International Workshop on PRedictive Intelligence In MEdicine},
+               pages={1--11},
+               year={2024},
+               organization={Springer}}</div>
+                    <button class="copy-button" data-target="bibtex-brainprog"><i class="fas fa-copy"></i> Copy BibTeX</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="publication">
+            <div class="publication-content">
+                <div class="publication-title">Denoising Diffusion Models for 3D Healthy Brain Tissue Inpainting</div>
+                <div class="publication-authors">Alicia Durrer, Julia Wolleb, Florentin Bieder, <b>Paul Friedrich</b>, Lester Melie-Garcia, Mario Ocampo-Pineda, Cosmin I. Bercea, Ibrahim E. Hamamci, Benedikt Wiestler, Marie Piraud, Özgür Yaldizli, Christina Granziera, Bjoern H. Menze, Philippe C. Cattin, Florian Kofler</div>
+                <div class="publication-journal">MICCAI Workshop on Deep Generative Models (DGM4MICCAI), 2024</div>
+                <div class="publication-links">
+                    <a href="https://link.springer.com/chapter/10.1007/978-3-031-72744-3_9"><i class="fas fa-file-pdf icon-spacing"></i> PDF</a>
+                    <a href="https://arxiv.org/abs/2403.14499"><i class="ai ai-arxiv icon-spacing"></i> arXiv</a>
+                    <a href="https://github.com/AliciaDurrer/DM_Inpainting"><i class="fab fa-github icon icon-spacing"> </i> Code</a>
+                    <a class="bibtex-button" data-publication="dminpaint"><i class="fas fa-quote-right icon-spacing"></i> BibTeX</a>
+                </div>
+                <div class="bibtex-dropdown" id="bibtex-dminpaint">
+                    <div class="bibtex-content">@inproceedings{durrer2024denoising,
+               title={Denoising diffusion models for 3D healthy brain tissue inpainting},
+               author={Durrer, Alicia and Wolleb, Julia and Bieder, Florentin and Friedrich, Paul and Melie-Garcia, Lester and Ocampo Pineda, Mario Alberto and Bercea, Cosmin I and Hamamci, Ibrahim Ethem and Wiestler, Benedikt and Piraud, Marie and others},
+               booktitle={MICCAI Workshop on Deep Generative Models},
+               pages={87--97},
+               year={2024},
+               organization={Springer}}</div>
+                    <button class="copy-button" data-target="bibtex-dminpaint"><i class="fas fa-copy"></i> Copy BibTeX</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="publication">
+            <div class="publication-content">
+                <div class="publication-title">MedShapeNet - A Large-Scale Dataset of 3D Medical Shapes for Computer Vision</div>
+                <div class="publication-authors">Jianning Li, Zongwei Zhou, Jiancheng Yang, Antonio Pepe, Christina Gsaxner, Gijs Luijten, Chongyu Qu, Tiezheng Zhang, Xiaoxi Chen, Wenxuan Li, Marek Wodzinski, <b>Paul Friedrich</b>, Kangxian Xie, Yuan Jin, <i>(122 more)</i>, Seyed-Ahmad Ahmadi, Ping Luo, Bjoern Menze, Mauricio Reyes, Thomas M. Deserno, Christos Davatzikos, Behrus Puladi, Pascal Fua, Alan L. Yuille, Jens Kleesiek, Jan Egger</div>
+                <div class="publication-journal">Biomedical Engineering / Biomedizinische Technik, 2024</div>
+                <div class="publication-links">
+                    <a href="https://medshapenet.ikim.nrw" class="project-page"><i class="fas fa-globe icon-spacing"></i>Project Page</a>
+                    <a href="https://doi.org/10.1515/bmt-2024-0396"><i class="fas fa-file-pdf icon-spacing"></i> PDF</a>
+                    <a href="https://arxiv.org/abs/2308.16139"><i class="ai ai-arxiv icon-spacing"></i> arXiv</a>
+                    <a href="https://github.com/Jianningli/medshapenet-feedback"><i class="fab fa-github icon icon-spacing"> </i> Code</a>
+                    <a class="bibtex-button" data-publication="medshapenet"><i class="fas fa-quote-right icon-spacing"></i> BibTeX</a>
+                </div>
+                <div class="bibtex-dropdown" id="bibtex-medshapenet">
+                    <div class="bibtex-content">@article{li2025medshapenet,
+         title={Medshapenet--a large-scale dataset of 3d medical shapes for computer vision},
+         author={Li, Jianning and Zhou, Zongwei and Yang, Jiancheng and Pepe, Antonio and Gsaxner, Christina and Luijten, Gijs and Qu, Chongyu and Zhang, Tiezheng and Chen, Xiaoxi and Li, Wenxuan and others},
+         journal={Biomedical Engineering/Biomedizinische Technik},
+         volume={70},
+         number={1},
+         pages={71--90},
+         year={2025},
+         publisher={de Gruyter}}</div>
+                    <button class="copy-button" data-target="bibtex-medshapenet"><i class="fas fa-copy"></i> Copy BibTeX</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="publication">
+            <div class="publication-content publication-highlight">
+                <div class="publication-title">Point Cloud Diffusion Models for Automatic Implant Generation</div>
+                <div class="publication-authors"><b>Paul Friedrich</b>, Julia Wolleb, Florentin Bieder, Florian M. Thieringer, Philippe C. Cattin</div>
+                <div class="publication-journal">International Conference on Medical Image Computing and Computer-Assisted Intervention (MICCAI), 2023</div>
+                <div class="publication-links">
+                    <a href="https://pfriedri.github.io/pcdiff-implant-io" class="project-page"><i class="fas fa-globe icon-spacing"></i>Project Page</a>
+                    <a href="https://doi.org/10.1007/978-3-031-43996-4_11"><i class="fas fa-file-pdf icon-spacing"></i> PDF</a>
+                    <a href="https://arxiv.org/abs/2303.08061"><i class="ai ai-arxiv icon-spacing"></i> arXiv</a>
+                    <a href="https://github.com/pfriedri/pcdiff-implant"><i class="fab fa-github icon icon-spacing"> </i> Code</a>
+                    <a href="https://youtu.be/6oN8CAqCJes"><i class="fab fa-youtube icon icon-spacing"> </i> Video</a>
+                    <a class="bibtex-button" data-publication="pcdiff"><i class="fas fa-quote-right icon-spacing"></i> BibTeX</a>
+                </div>
+                <div class="bibtex-dropdown" id="bibtex-pcdiff">
+                    <div class="bibtex-content">@inproceedings{friedrich2023point,
+               title={Point cloud diffusion models for automatic implant generation},
+               author={Friedrich, Paul and Wolleb, Julia and Bieder, Florentin and Thieringer, Florian M and Cattin, Philippe C},
+               booktitle={International conference on medical image computing and computer-assisted intervention},
+               pages={112--122},
+               year={2023},
+               organization={Springer}}</div>
+                    <button class="copy-button" data-target="bibtex-pcdiff"><i class="fas fa-copy"></i> Copy BibTeX</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="research">
+    <div class="container">
+        <h2>GitHub Projects</h2>
+        <p>A collection of my public GitHub repositories.</p>
+
+        <div class="github-repos">
+            <a href="https://github.com/pfriedri/medfuncta" class="repo-card">
+                <h3>pfriedri/medfuncta</h3>
+                <p>PyTorch implementation for "MedFuncta: Modality-Agnostic Representations Based on Efficient Neural Fields" (2025)</p>
+                <div class="repo-meta">
+                    <div><i class="fas fa-star"></i> <span class="stars-count" id="medfuncta-stars">--</span></div>
+                    <div><i class="fas fa-code-branch"></i> <span class="forks-count" id="medfuncta-forks">--</span></div>
+                    <div><i class="fas fa-circle" style="color: #3572A5; font-size: 12px;"></i> Python</div>
+                </div>
+            </a>
+
+            <a href="https://github.com/pfriedri/wdm-3d" class="repo-card">
+                <h3>pfriedri/wdm-3d</h3>
+                <p>PyTorch implementation for "WDM: 3D Wavelet Diffusion Models for High-Resolution Medical Image Synthesis" (DGM4MICCAI 2024)</p>
+                <div class="repo-meta">
+                    <div><i class="fas fa-star"></i> <span class="stars-count" id="wdm-3d-stars">--</span></div>
+                    <div><i class="fas fa-code-branch"></i> <span class="forks-count" id="wdm-3d-forks">--</span></div>
+                    <div><i class="fas fa-circle" style="color: #3572A5; font-size: 12px;"></i> Python</div>
+                </div>
+            </a>
+
+            <a href="https://github.com/pfriedri/cwdm" class="repo-card">
+                <h3>pfriedri/cwdm</h3>
+                <p>PyTorch implementation for "cWDM: Conditional Wavelet Diffusion Models for Cross-Modality 3D Medical Image Synthesis" (BraTS 2024)</p>
+                <div class="repo-meta">
+                    <div><i class="fas fa-star"></i> <span class="stars-count" id="cwdm-stars">--</span></div>
+                    <div><i class="fas fa-code-branch"></i> <span class="forks-count" id="cwdm-forks">--</span></div>
+                    <div><i class="fas fa-circle" style="color: #3572A5; font-size: 12px;"></i> Python</div>
+                </div>
+            </a>
+
+            <a href="https://github.com/pfriedri/pcdiff-implant" class="repo-card">
+                <h3>pfriedri/pcdiff-implant</h3>
+                <p>PyTorch implementation for "Point Cloud Diffusion Models for Automatic Implant Generation" (MICCAI 2023)</p>
+                <div class="repo-meta">
+                    <div><i class="fas fa-star"></i> <span class="stars-count" id="pcdiff-stars">--</span></div>
+                    <div><i class="fas fa-code-branch"></i> <span class="forks-count" id="pcdiff-forks">--</span></div>
+                    <div><i class="fas fa-circle" style="color: #3572A5; font-size: 12px;"></i> Python</div>
+                </div>
+            </a>
+        </div>
+    </div>
+</section>
+
+<section id="talks">
+    <div class="container">
+        <h2>Invited Talks</h2>
+        <div class="talk">
+            <p>
+                <b>2024 – “Diffusion Models for Medical Image Analysis”</b><br>
+                <em>Technical University of Munich, Lab for AI in Medicine, Daniel Rückert</em><br>
+            </p>
+            <div class="publication-links">
+                <a href="material/Diffusion%20Models%20for%20Medical%20Image%20Analysis.pdf"><i class="fas fa-file-pdf icon-spacing"></i> Slides</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="academic-services">
+    <div class="container">
+        <h2>Academic Services</h2>
+
+        <div class="service">
+            <h3>Journal Reviewer</h3>
+            <ul>
+                <li>IEEE Transactions on Medical Imaging (TMI)</li>
+                <li>IEEE Journal of Biomedical and Health Informatics (JBHI)</li>
+            </ul>
+        </div>
+
+        <div class="service">
+            <h3>Conference Reviewer</h3>
+            <ul>
+                <li>International Conference on Medical Image Computing and Computer-Assisted Intervention (MICCAI): 2024, 2025</li>
+                <li>Medical Imaging with Deep Learning (MIDL): 2025</li>
+                <li>International Conference on Information Processing in Computer-Assisted Interventions (IPCAI): 2025</li>
+                <li>MICCAI Workshops: 2024, 2025</li>
+            </ul>
+        </div>
+
+        <div class="service">
+            <h3>Others</h3>
+            <ul>
+                <li>Member of the Integrity Commission @ DBE University of Basel</li>
+            </ul>
+        </div>
+
+    </div>
+</section>
+
+<footer id="contact">
+    <div class="container">
+        <h2>Contact Information</h2>
+        <div class="contact-info">
+            <p>Email: <a href="mailto:paul.friedrich@unibas.ch" style="color: white;">paul.friedrich@unibas.ch</a></p>
+            <p>Address: Hegenheimermattweg 167 B/C, 4123 Allschwil, Switzerland</p>
+        </div>
+
+        <div class="footer-social-links">
+            <a href="https://scholar.google.com/citations?user=jz_CjHYAAAAJ&hl=en"><i class="fas fa-graduation-cap"></i> Google Scholar</a>
+            <a href="https://github.com/pfriedri"><i class="fab fa-github"></i> GitHub</a>
+            <a href="https://linkedin.com/in/pfriedri" title="LinkedIn"><i class="fab fa-linkedin fa-lg"></i> LinkedIn</a>
+            <a href="https://orcid.org/0000-0003-3653-5624" title="ORCID"><i class="fab fa-orcid fa-lg"></i> ORCID</a>
+            <a href="mailto:paul.friedrich@unibas.ch" title="Email"><i class="fas fa-envelope fa-lg"></i> Email</a>
+        </div>
+
+        <div class="copyright">
+            <p>&#169; 2025 Paul Friedrich. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
+<!-- Copy Success Message Element -->
+<div class="copy-success" id="copy-success">
+    BibTeX copied to clipboard!
+</div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Function to fetch GitHub repository stats
+            async function fetchGitHubStats(username, repo) {
+                try {
+                    const response = await fetch(`https://api.github.com/repos/${username}/${repo}`);
+                    if (!response.ok) {
+                        throw new Error(`GitHub API error: ${response.status}`);
+                    }
+                    const data = await response.json();
+                    return { 
+                        stars: data.stargazers_count, 
+                        forks: data.forks_count 
+                    };
+                } catch (error) {
+                    console.error(`Error fetching GitHub stats for ${username}/${repo}:`, error);
+                    return null;
+                }
+            }
+            
+            // Function to update UI with repository stats
+            async function updateRepoStats() {
+                // List of repositories to fetch stats for with their corresponding element IDs
+                const repositories = [
+                    { name: 'medfuncta', username: 'pfriedri', element: 'medfuncta' },
+                    { name: 'wdm-3d', username: 'pfriedri', element: 'wdm-3d' },
+                    { name: 'cwdm', username: 'pfriedri', element: 'cwdm' },
+                    { name: 'pcdiff-implant', username: 'pfriedri', element: 'pcdiff' },
+                ];
+                
+                // Fetch stats for each repository
+                for (const repo of repositories) {
+                    const stats = await fetchGitHubStats(repo.username, repo.name);
+                    if (stats) {
+                        // Update the HTML elements with the fetched data
+                        const starsElement = document.getElementById(`${repo.element}-stars`);
+                        const forksElement = document.getElementById(`${repo.element}-forks`);
                         
-                        <!--WHITESPACE--> 
-                        <tr style="height:10px;"></tr>
-                        
-                        <!--PAPER_07--> 
-                        <tr style="padding:0; background-color:#ffffd0;">
-                            <td style="padding:2.5%; width:34%; max-width:34%;">
-                                <a href="https://arxiv.org/abs/2410.17664">
-                                    <img src="images/dgm4medsyn.png" alt="profile photo" style="width:100%; max-width:100%;" class="hoverZoomLink">
-                                </a>
-                            </td>
-                            <td style="padding:2.5%; width:66%; vertical-align:middle;">
-                                <a href="https://arxiv.org/abs/2410.17664">
-                                    <papertitle>Deep Generative Models for 3D Medical Image Synthesis</papertitle>
-                                </a>
-                                <br><strong>Paul Friedrich</strong>, Yannik Frisch, Philippe C. Cattin
-                                <br><em>Generative Machine Learning Models in Medical Image Computing, 2024</em>
-                                <br><a href="https://link.springer.com/chapter/10.1007/978-3-031-80965-1_13">Chapter</a> / <a href="https://arxiv.org/abs/2410.17664">arXiv</a> / <a href="https://link.springer.com/book/10.1007/978-3-031-80965-1">Book</a>
-                                <p>A review of deep generative models (VAEs, GANs, and DDMs) for 3D medical image synthesis, covering principles, advances, and their application for downstream tasks. The chapter also reviews evaluation metrics for image fidelity, diversity, utility, and privacy.</p>
-                            </td>
-                        </tr>   
-                        
-                        <!--PAPER_06--> 
-                        <tr style="padding:0px"; bgcolor="#ffffff">
-                            <td style="padding:2.5%;width:34%;max-width:34%">
-                                <a href="https://florentinbieder.github.io/Neonatal-Development-INR/"><img style="width:100%;max-width:100%" alt="profile photo" src="images/inr_brain.png" class="hoverZoomLink"></a>
-                            </td>
+                        if (starsElement) starsElement.textContent = stats.stars;
+                        if (forksElement) forksElement.textContent = stats.forks;
+                    }
+                }
+            }
 
-                            <td style="padding:2.5%;width:66%;vertical-align: middle;">
-                                <a href="https://arxiv.org/abs/2408.08647">
-                                    <papertitle>Modeling the Neonatal Brain Development Using Implicit Neural Representations</papertitle>
-                                </a>
-                                <br>Florentin Bieder, <strong>Paul Friedrich</strong>, Hélène Corbaz, Alicia Durrer, Julia Wolleb, Philippe C. Cattin
-                                <br><em>PRIME@MICCAI, 2024</em>
-                                <br><a href="https://florentinbieder.github.io/Neonatal-Development-INR/">Project page</a> / <a href="https://github.com/FlorentinBieder/Neonatal-Development-INR">Code</a> / <a href="https://arxiv.org/abs/2408.08647">arXiv</a> / <a href="https://link.springer.com/chapter/10.1007/978-3-031-74561-4_1">Paper</a>
-                                <p>An implicit neural representation (INR), to predict 2D- and 3D MR images of neonatal brains at varying time points.</p>
-                            </td>
-                        </tr>
-                       
-                        <!--PAPER_05--> 
-                        <tr style="padding:0px"; bgcolor="#ffffff">
-                            <td style="padding:2.5%;width:34%;max-width:34%">
-                                <a href="https://arxiv.org/abs/2403.14499"><img style="width:100%;max-width:100%" alt="profile photo" src="images/inpaint.png" class="hoverZoomLink"></a>
-                            </td>
+            // Call the function to update stats
+            updateRepoStats();
+            
+            // Show more news functionality
+            const showMoreButton = document.getElementById('show-more-button');
+            const moreNews = document.getElementById('more-news');
+            
+            if (showMoreButton && moreNews) {
+                showMoreButton.addEventListener('click', function() {
+                    if (moreNews.style.display === 'none' || moreNews.style.display === '') {
+                        moreNews.style.display = 'block';
+                        showMoreButton.textContent = 'Show less';
+                    } else {
+                        moreNews.style.display = 'none';
+                        showMoreButton.textContent = 'Show more';
+                    }
+                });
+            }
 
-                            <td style="padding:2.5%;width:66%;vertical-align: middle;">
-                                <a href="https://arxiv.org/abs/2403.14499">
-                                    <papertitle>Denoising Diffusion Models for 3D Healthy Brain Tissue Inpainting</papertitle>
-                                </a>
-                                <br>Alicia Durrer, Julia Wolleb, Florentin Bieder, <strong>Paul Friedrich</strong>, Lester Melie-Garcia, Mario Ocampo-Pineda, Cosmin I. Bercea, Ibrahim E. Hamamci, Benedikt Wiestler, Marie Piraud, Özgür Yaldizli, Christina Granziera, Bjoern H. Menze, Philippe C. Cattin, Florian Kofler
-                                <br><em>DGM4MICCAI, 2024</em>
-                                <br><a href="https://github.com/AliciaDurrer/DM_Inpainting">Code</a> / <a href="https://arxiv.org/abs/2403.14499">arXiv</a> / <a href="https://link.springer.com/chapter/10.1007/978-3-031-72744-3_9">Paper</a>
-                                <p>A review on different diffusion models for 3D healthy brain tissue inpainting.</p>
-                            </td>
-                        </tr>
-                        
-                        <!--PAPER_04-->
-                        <tr style="padding:0px"; bgcolor="#ffffff">
-                            <td style="padding:2.5%;width:34%;max-width:34%">
-                                <a href="https://arxiv.org/abs/2403.11667"><img style="width:100%;max-width:100%" alt="profile photo" src="images/berdiff.png" class="hoverZoomLink"></a>
-                            </td>
+            // BibTeX toggle functionality
+            const bibtexButtons = document.querySelectorAll('.bibtex-button');
 
-                            <td style="padding:2.5%;width:66%;vertical-align: middle;">
-                                <a href="https://arxiv.org/abs/2403.11667">
-                                    <papertitle>Binary Noise for Binary Tasks: Masked Bernoulli Diffusion for Unsupervised Anomaly Detection</papertitle>
-                                </a>
-                                <br>Julia Wolleb, Florentin Bieder, <strong>Paul Friedrich</strong>, Peter Zhang, Alicia Durrer, Philippe C. Cattin
-                                <br><em>MICCAI, 2024</em>
-                                <br><a href="https://github.com/JuliaWolleb/Anomaly_berdiff">Code</a> / <a href="https://arxiv.org/abs/2403.11667">arXiv</a> / <a href="https://link.springer.com/chapter/10.1007/978-3-031-72120-5_13">Paper</a>
-                                <p>A Bernoulli Diffusion Model operating on a binary latent representation of the data to effectively solve an unsupervised anomaly detection task.</p>
-                            </td>
-                        </tr>
-                        
-                        <!--PAPER_03--> 
-                        <tr style="padding:0px", bgcolor="#ffffd0">
-                            <td style="padding:2.5%;width:34%;max-width:34%">
-                                <a href="https://pfriedri.github.io/wdm-3d-io"><img style="width:50%;max-width:100%" alt="profile photo" src="images/sample_0.gif" class="hoverZoomLink"></a><a href="https://pfriedri.github.io/wdm-3d-io"><img style="width:50%;max-width:100%" alt="profile photo" src="images/sample_1.gif" class="hoverZoomLink"></a>
-                            </td>
+            bibtexButtons.forEach(button => {
+                button.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const publicationId = this.getAttribute('data-publication');
+                    const bibtexDropdown = document.getElementById(`bibtex-${publicationId}`);
 
-                            <td style="padding:2.5%;width:66%;vertical-align: middle;">
-                                <a href="https://pfriedri.github.io/wdm-3d-io">
-                                    <papertitle>WDM: 3D Wavelet Diffusion Models for High-Resolution Medical Image Synthesis</papertitle>
-                                </a>
-                                <br><strong>Paul Friedrich</strong>, Julia Wolleb, Florentin Bieder, Alicia Durrer, Philippe C. Cattin
-                                <br><em>DGM4MICCAI, 2024</em>
-                                <br><a href="https://pfriedri.github.io/wdm-3d-io">Project page</a> / <a href="https://github.com/pfriedri/wdm-3d">Code</a> / <a href="https://huggingface.co/pfriedri/wdm-3d">Models</a> / <a href="https://arxiv.org/abs/2402.19043">arXiv</a> / <a href="https://link.springer.com/chapter/10.1007/978-3-031-72744-3_2">Paper</a> / <a href="https://youtu.be/TD3Vw2HmzM4">YouTube</a>
-                                <p>WDM is a framework for high-resolution medical images synthesis. We propose a simple yet effective way of scaling 3D diffusion models to high resolutions (256 x 256 x 256 on a single 40 GB GPU) by applying Discrete Wavelet Transform for spatial dimensionality reduction.</p>
-                            </td>
-                        </tr>
-                        
-                        <!--PAPER_02--> 
-                        <tr style="padding:0px"; bgcolor="#ffffff">
-                            <td style="padding:2.5%;width:34%;max-width:34%">
-                                <a href="https://medshapenet.ikim.nrw"><img style="width:100%;max-width:100%" alt="profile photo" src="images/shape_gallery.png" class="hoverZoomLink"></a>
-                            </td>
+                    // Close all other open bibtex dropdowns
+                    document.querySelectorAll('.bibtex-dropdown').forEach(dropdown => {
+                        if (dropdown.id !== `bibtex-${publicationId}`) {
+                            dropdown.style.display = 'none';
+                        }
+                    });
 
-                            <td style="padding:2.5%;width:66%;vertical-align: middle;">
-                                <a href="https://doi.org/10.1515/bmt-2024-0396">
-                                    <papertitle>MedShapeNet - A Large-Scale Dataset of 3D Medical Shapes for Computer Vision</papertitle>
-                                </a>
-                                <br>Jianning Li, Zongwei Zhou, Jiancheng Yang, Antonio Pepe, Christina Gsaxner, Gijs Luijten, Chongyu Qu, Tiezheng Zhang, Xiaoxi Chen, Wenxuan Li, Marek Wodzinski, <strong>Paul Friedrich</strong>, Kangxian Xie, Yuan Jin, <i>(122 more)</i>, Seyed-Ahmad Ahmadi, Ping Luo, Bjoern Menze, Mauricio Reyes, Thomas M. Deserno, Christos Davatzikos, Behrus Puladi, Pascal Fua, Alan L. Yuille, Jens Kleesiek, Jan Egger
-                                <br><em>Biomedical Engineering / Biomedizinische Technik, 2024</em>
-                                <br><a href="https://medshapenet.ikim.nrw">Project page</a> / <a href="https://github.com/Jianningli/medshapenet-feedback">Code</a> / <a href="https://arxiv.org/abs/2308.16139">arXiv</a> / <a href="https://doi.org/10.1515/bmt-2024-0396">Paper</a> / <a href="https://medshapenet-ikim.streamlit.app">Dataset</a>
-                                <p>MedShapeNet contains over 100,000 medical shapes, including bones, organs, vessels, muscles, etc., as well as surgical instruments. You can search, display them in 3D and download the individual shapes by using our <a href="https://medshapenet-ikim.streamlit.app">shape search engine</a>.</p>
-                            </td>
-                        </tr>
+                    // Toggle current dropdown
+                    if (bibtexDropdown.style.display === 'none' || bibtexDropdown.style.display === '') {
+                        bibtexDropdown.style.display = 'block';
+                    } else {
+                        bibtexDropdown.style.display = 'none';
+                    }
+                });
+            });
 
-                        <!--PAPER_01--> 
-                        <tr style="padding:0px"; bgcolor="#ffffd0">
-                            <td style="padding:2.5%;width:34%;max-width:34%">
-                                <a href="https://pfriedri.github.io/pcdiff-implant-io"><img style="width:100%;max-width:100%" alt="profile photo" src="images/DiffusionImplant.jpeg" class="hoverZoomLink"></a>
-                            </td>
+            // Copy BibTeX functionality
+            const copyButtons = document.querySelectorAll('.copy-button');
 
-                            <td style="padding:2.5%;width:66%;vertical-align: middle;">
-                                <a href="https://pfriedri.github.io/pcdiff-implant-io">
-                                    <papertitle>Point Cloud Diffusion Models for Automatic Implant Generation</papertitle>
-                                </a>
-                                <br><strong>Paul Friedrich</strong>, Julia Wolleb, Florentin Bieder, Florian M. Thieringer, Philippe C. Cattin
-                                <br><em>MICCAI, 2023</em>
-                                <br><a href="https://pfriedri.github.io/pcdiff-implant-io">Project page</a> / <a href="https://github.com/pfriedri/pcdiff-implant">Code</a> / <a href="https://arxiv.org/abs/2303.08061">arXiv</a> / <a href="https://doi.org/10.1007/978-3-031-43996-4_11">Paper</a> / <a href="https://youtu.be/6oN8CAqCJes">YouTube</a>
-                                <p>Following the recent success of diffusion models, we propose a novel approach for automatic implant generation based on a combination of 3D point cloud diffusion models and voxelization networks. Due to the non-deterministic sampling process in our diffusion model, we can propose an ensemble of different implants per defect, from which the physicians can choose the most suitable one.</p>
-                            </td>
-                        </tr>
-                    </table>
+            copyButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const targetId = this.getAttribute('data-target');
+                    const bibtexContent = document.querySelector(`#${targetId} .bibtex-content`);
+                    const textToCopy = bibtexContent.textContent;
 
-                    <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;text-align:justify;">
-                        <tbody>
-                            <tr>
-                                <td style="padding:20px;width:100%;vertical-align:middle">
-                                    <heading>Invited Talks</heading>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    // Create a temporary textarea element to copy the text
+                    const textarea = document.createElement('textarea');
+                    textarea.value = textToCopy;
+                    textarea.setAttribute('readonly', '');
+                    textarea.style.position = 'absolute';
+                    textarea.style.left = '-9999px';
+                    document.body.appendChild(textarea);
 
-                    <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;text-align:justify;>
-                        <tr style="padding:0px"; bgcolor="#ffffff">
-                            <td style="padding:2.5%;width:34%;max-width:34%">
-                                <a href="presentations/Diffusion Models for Medical Image Analysis.pdf"><img style="width:100%;max-width:100%" alt="profile photo" src="presentations/DDM4MIA.png" class="hoverZoomLink"></a>
-                            </td>
+                    // Select the text and copy it
+                    textarea.select();
+                    document.execCommand('copy');
 
-                            <td style="padding:2.5%;width:66%;vertical-align: middle;">
-                                <a href="presentations/Diffusion Models for Medical Image Analysis.pdf">
-                                    <papertitle>Diffusion Models for Medical Image Analysis</papertitle>
-                                </a>
-                                <br><strong>Technical University of Munich</strong>, hosted by Daniel Rückert, 2024
-                                <br><a href="presentations/Diffusion Models for Medical Image Analysis.pdf">Slides</a>
-                            </td>
-                        </tr>
-                    </table>
+                    // Remove the textarea
+                    document.body.removeChild(textarea);
 
-                    <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;text-align:justify;">
-                        <tbody>
-                            <tr>
-                                <td style="padding:20px;width:100%;vertical-align:middle">
-                                    <heading>Academic Services</heading>
-                                    <ul>
-                                        <li> <b>Journal reviewer:</b> IEEE TMI, IEEE JBHI </li>
-                                        <li> <b>Conference reviewer:</b> MICCAI, MIDL, IPCAI, MICCAI workshops</li>
-                                        <li> <b>Others:</b> Member of the Integrity Comission @ DBE University of Basel </li>
-                                    </ul>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    // Show success message
+                    const successMessage = document.getElementById('copy-success');
+                    successMessage.style.display = 'block';
 
-                    <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
-                        <tr>
-                            <td>
-                                <br>
-                                <p align="right">
-                                    <font size="2">
-                                        template adapted from
-                                        <a href="https://jonbarron.info/">
-                                            <font size="2">this website</font>
-                                        </a>
-                                    </font>
-                                </p>
-                            </td>
-                        </tr>
-                    </table>
-
-    </table>
+                    // Hide success message after animation completes
+                    setTimeout(function() {
+                        successMessage.style.display = 'none';
+                    }, 2000);
+                });
+            });
+        });
+    </script>
 </body>
-
 </html>
