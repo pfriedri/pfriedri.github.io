@@ -22,7 +22,7 @@
             line-height: 1.6;
             color: var(--text-color);
             margin: 0;
-            padding: 0;
+            padding-top: 50px;
             background-color: #fff;
         }
 
@@ -30,6 +30,7 @@
             max-width: 1100px;
             margin: 0 auto;
             padding: 0 20px;
+            padding-top: 50px;
         }
 
         header {
@@ -391,13 +392,83 @@
             text-decoration: underline;
         }
 
+        nav {
+            background-color: var(--secondary-color);
+            padding: 0.5rem 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        .container {
+            position: relative;
+            padding-top: 0;
+        }
+
+        .hamburger-menu {
+            display: none;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+        }
+
+        .hamburger-icon {
+            display: block;
+            width: 25px;
+            height: 3px;
+            margin: 5px 0;
+            background-color: white;
+            transition: all 0.3s ease;
+        }
+
+        /* Mobile menu styles */
+        @media (max-width: 768px) {
+            .hamburger-menu {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                width: 100%;
+            }
+
+            .nav-links.active {
+                display: block;
+            }
+
+            nav ul {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            nav li {
+                margin: 10px 0;
+                text-align: center;
+            }
+
+            /* Hamburger icon animation */
+            .hamburger-menu.active .hamburger-icon:nth-child(1) {
+                transform: rotate(45deg) translate(4.5px, 4.5px);
+            }
+
+            .hamburger-menu.active .hamburger-icon:nth-child(2) {
+                opacity: 0;
+            }
+
+            .hamburger-menu.active .hamburger-icon:nth-child(3) {
+                transform: rotate(-45deg) translate(7px, -7px);
+            }
+
         /* Copy success message */
         .copy-success {
             display: none;
             position: fixed;
-            top: 20px;
+            top: 70px;
             right: 20px;
-            background-color: #4CAF50;
+            background-color: var(--secondary-color);
             color: white;
             padding: 10px 20px;
             border-radius: 4px;
@@ -442,6 +513,7 @@
                 grid-template-columns: 1fr;
             }
         }
+        }
     </style>
 </head>
 <body>
@@ -470,15 +542,22 @@
 
 <nav>
     <div class="container">
-        <ul>
-            <li><a href="#about" style="color:white;">About</a></li>
-            <li><a href="#news" style="color:white;">News</a></li>
-            <li><a href="#publications" style="color:white;">Publications</a></li>
-            <li><a href="#research" style="color:white;">GitHub Projects</a></li>
-            <li><a href="#talks" style="color:white;">Invited Talks</a></li>
-            <li><a href="#academic-services" style="color:white;">Academic Services</a></li>
-            <li><a href="#contact" style="color:white;">Contact</a></li>
-        </ul>
+        <button class="hamburger-menu" aria-label="Toggle navigation">
+            <span class="hamburger-icon"></span>
+            <span class="hamburger-icon"></span>
+            <span class="hamburger-icon"></span>
+        </button>
+        <div class="nav-links">
+            <ul>
+                <li><a href="#about" style="color:white;">About</a></li>
+                <li><a href="#news" style="color:white;">News</a></li>
+                <li><a href="#publications" style="color:white;">Publications</a></li>
+                <li><a href="#research" style="color:white;">GitHub Projects</a></li>
+                <li><a href="#talks" style="color:white;">Invited Talks</a></li>
+                <li><a href="#academic-services" style="color:white;">Academic Services</a></li>
+                <li><a href="#contact" style="color:white;">Contact</a></li>
+            </ul>
+        </div>
     </div>
 </nav>
 
@@ -491,10 +570,8 @@
         </p>
         <p>
             I'm interested in medical image analysis, implicit neural representations, 3D deep learning and generative modeling. My current research is part of the <a href="https://dbe.unibas.ch/en/research/flagship-project-miracle/">MIRACLE II</a> project and focuses on conditional shape generation and manipulation tasks as well as (un)conditional 3D medical image generation.
-            I'm particularly interested in different types of 3D data representations, including voxel grids, point clouds, meshes, triplanes, or neural implicit representations.
+            I'm particularly interested in different types of 3D data representations, including voxel grids, point clouds, meshes, triplanes, and neural implicit representations.
         </p>
-
-
     </div>
 </section>
 
@@ -503,20 +580,20 @@
         <h2>News & Updates</h2>
 
         <div class="news-item">
+            <div class="news-date">March, 2025</div>
+            <h3>Journal Paper Published</h3>
+            <p>
+                Our paper <a href="https://link.springer.com/article/10.1007/s11548-025-03343-y">Generating 3D Pseudo-Healthy Knee MR Images to Support Trochleoplasty Planning</a> which has previously been early-accepted to IPCAI has been published in the International Journal of Computer Assisted Radiology and Surgery.
+            </p>
+        </div>
+
+        <div class="news-item">
             <div class="news-date">February, 2025</div>
             <h3>New Preprint</h3>
             <p>
                 Our paper <a href="https://pfriedri.github.io/medfuncta-io/">MedFuncta: Modality-Agnostic Representations Based on Efficient Neural Fields</a> is available on arXiv.
                 We introduce a modality agnostic continuous data representation based on meta-learned neural fields (NFs) and show how NFs can be generalized from single instances to large datasets.
                 We further demonstrate that we can solve relevant downstream tasks by applying nerual networks to this permutation-equivariant functional representation.
-            </p>
-        </div>
-
-        <div class="news-item">
-            <div class="news-date">March, 2025</div>
-            <h3>Journal Paper Published</h3>
-            <p>
-                Our paper <a href="https://link.springer.com/article/10.1007/s11548-025-03343-y">Generating 3D Pseudo-Healthy Knee MR Images to Support Trochleoplasty Planning</a> which has previously been early-accepted to IPCAI has been published in the International Journal of Computer Assisted Radiology and Surgery.
             </p>
         </div>
 
@@ -550,7 +627,7 @@
 <section id="publications">
     <div class="container">
         <h2>Publications</h2>
-        <p>A collection of my published research articles. First-author contributions are <span style="background-color: #aed6f1;border-radius: 3px;padding: 2px 4px;">highlighted</span>.</p>
+        <p>A collection of my published research articles. First-author contributions are <span style="background-color: rgba(174, 214, 241, 0.48);border-radius: 3px;padding: 2px 4px;">highlighted</span>.</p>
 
         <div class="publication">
             <div class="publication-content publication-highlight">
@@ -900,7 +977,6 @@
         <h2>Contact Information</h2>
         <div class="contact-info">
             <p>Email: <a href="mailto:paul.friedrich@unibas.ch" style="color: white;">paul.friedrich@unibas.ch</a></p>
-            <p>Address: Hegenheimermattweg 167 B/C, 4123 Allschwil, Switzerland</p>
         </div>
 
         <div class="footer-social-links">
@@ -917,7 +993,6 @@
     </div>
 </footer>
 
-<!-- Copy Success Message Element -->
 <div class="copy-success" id="copy-success">
     BibTeX copied to clipboard!
 </div>
@@ -1028,6 +1103,50 @@
                 });
             });
 
+            // Hamburger menu functionality
+            const hamburgerMenu = document.querySelector('.hamburger-menu');
+            const navLinks = document.querySelector('.nav-links');
+
+            if (hamburgerMenu) {
+                hamburgerMenu.addEventListener('click', function() {
+                    hamburgerMenu.classList.toggle('active');
+                    navLinks.classList.toggle('active');
+                });
+
+                // Close the menu when a link is clicked
+                const navItems = document.querySelectorAll('.nav-links a');
+                navItems.forEach(item => {
+                    item.addEventListener('click', function() {
+                        hamburgerMenu.classList.remove('active');
+                        navLinks.classList.remove('active');
+                    });
+                });
+            }
+
+            document.addEventListener("DOMContentLoaded", function () {
+                const OFFSET = 50; // Change this to your desired offset (in px)
+
+                document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                    anchor.addEventListener("click", function (e) {
+                        const targetId = this.getAttribute("href").substring(1);
+                        const targetElement = document.getElementById(targetId);
+
+                        if (targetElement) {
+                            e.preventDefault();
+                            const bodyTop = document.body.getBoundingClientRect().top;
+                            const elementTop = targetElement.getBoundingClientRect().top;
+                            const targetPosition = elementTop - bodyTop;
+                            const offsetPosition = targetPosition - OFFSET;
+
+                            window.scrollTo({
+                                top: offsetPosition,
+                                behavior: "smooth"
+                            });
+                        }
+                    });
+                });
+            });
+
             // Copy BibTeX functionality
             const copyButtons = document.querySelectorAll('.copy-button');
 
@@ -1064,5 +1183,31 @@
             });
         });
     </script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const OFFSET = 50; // Change this to your desired offset (in px)
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener("click", function (e) {
+                const targetId = this.getAttribute("href").substring(1);
+                const targetElement = document.getElementById(targetId);
+
+                if (targetElement) {
+                    e.preventDefault();
+                    const bodyTop = document.body.getBoundingClientRect().top;
+                    const elementTop = targetElement.getBoundingClientRect().top;
+                    const targetPosition = elementTop - bodyTop;
+                    const offsetPosition = targetPosition - OFFSET;
+
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: "smooth"
+                    });
+                }
+            });
+        });
+    });
+</script>
 </body>
 </html>
