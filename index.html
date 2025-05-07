@@ -9,6 +9,10 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌐</text></svg>">
     <style>
+
+        /*
+         * Global variables for consistent theming
+         */
         :root {
             --primary-color: #1a5276;
             --secondary-color: #2980b9;
@@ -17,6 +21,10 @@
             --light-bg: #f8f9fa;
         }
 
+        /*
+         * BASE STYLES
+         * General styling for the entire document
+         */
         body {
             font-family: 'Roboto', 'Helvetica Neue', sans-serif;
             line-height: 1.6;
@@ -30,12 +38,17 @@
             max-width: 1100px;
             margin: 0 auto;
             padding: 0 20px;
+            position: relative;
         }
 
+        /*
+         * HEADER STYLES
+         * Styling for the header section
+         */
         header {
             background-color: var(--primary-color);
             color: white;
-            padding: 2rem 0;
+            padding: 2.5rem 0;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
 
@@ -45,6 +58,7 @@
             align-items: center;
         }
 
+        /* Profile section */
         .profile {
             display: flex;
             align-items: center;
@@ -63,23 +77,27 @@
         .profile-info {
             display: flex;
             flex-direction: column;
-            gap: 0.5rem;
+            gap: 0.1rem;
         }
 
         .profile-info h1 {
             margin: 0;
-            font-size: 2.2rem;
+            font-size: 2.5rem;
         }
 
         .profile-info p {
             margin: 0;
-            font-size: 1.1rem;
+            font-size: 1rem;
         }
 
+        /*
+         * SOCIAL ICONS
+         * Styling for social media links
+         */
         .social-icons {
             display: flex;
             gap: 1rem;
-            margin-top: 1rem;
+            margin-top: 0.5rem;
         }
 
         .social-icons a {
@@ -101,6 +119,10 @@
             transform: translateY(-3px);
         }
 
+        /*
+         * LINK STYLES
+         * General styling for links
+         */
         a:link {
             color: #1a5276;
             background-color: transparent;
@@ -113,9 +135,18 @@
             text-decoration: none;
         }
 
+        /*
+         * NAVIGATION
+         * Fixed navigation bar styling
+         */
         nav {
             background-color: var(--secondary-color);
             padding: 0.5rem 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
         }
 
         nav ul {
@@ -142,6 +173,28 @@
             color: #e0e0e0;
         }
 
+        /* Hamburger menu for mobile */
+        .hamburger-menu {
+            display: none;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+        }
+
+        .hamburger-icon {
+            display: block;
+            width: 25px;
+            height: 3px;
+            margin: 5px 0;
+            background-color: white;
+            transition: all 0.3s ease;
+        }
+
+        /*
+         * SECTION STYLES
+         * General section styling
+         */
         section {
             padding: 0.5rem 0;
         }
@@ -157,6 +210,10 @@
             text-align: justify;
         }
 
+        /*
+         * PUBLICATION STYLES
+         * Styling for publication items
+         */
         .publication {
             margin-bottom: 1rem;
             padding-bottom: 1rem;
@@ -228,7 +285,10 @@
             margin-right: 5px;
         }
 
-        /* BibTeX dropdown styling */
+        /*
+         * BIBTEX DROPDOWN
+         * Styling for BibTeX citation dropdown
+         */
         .bibtex-dropdown {
             display: none;
             background-color: #f8f9fa;
@@ -271,6 +331,10 @@
             background-color: var(--secondary-color);
         }
 
+        /*
+         * COPY SUCCESS NOTIFICATION
+         * Styling for copy success notification
+         */
         .copy-success {
             display: none;
             position: fixed;
@@ -285,14 +349,6 @@
             animation: fadeInOut 2s ease-in-out;
         }
 
-        .copyright {
-            text-align: right;
-            font-size: 0.85rem;
-            margin-top: 1rem;
-            padding-top: 1rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.2);
-        }
-
         @keyframes fadeInOut {
             0% { opacity: 0; }
             20% { opacity: 1; }
@@ -300,6 +356,10 @@
             100% { opacity: 0; }
         }
 
+        /*
+         * GITHUB REPOSITORIES
+         * Styling for GitHub repositories section
+         */
         .github-repos {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -350,6 +410,10 @@
             gap: 0.4rem;
         }
 
+        /*
+         * NEWS ITEMS
+         * Styling for news section
+         */
         .news-item {
             margin-bottom: 0.5rem;
             padding-bottom: 0.5rem;
@@ -365,6 +429,10 @@
             color: var(--primary-color);
         }
 
+        /*
+         * FOOTER
+         * Styling for the footer section
+         */
         footer {
             background-color: var(--primary-color);
             color: white;
@@ -391,40 +459,20 @@
             text-decoration: underline;
         }
 
-        nav {
-            background-color: var(--secondary-color);
-            padding: 0.5rem 0;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 1000;
+        .copyright {
+            text-align: right;
+            font-size: 0.85rem;
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
         }
 
-        .container {
-            position: relative;
-            padding-top: 0;
-        }
-
-        .hamburger-menu {
-            display: none;
-            background: transparent;
-            border: none;
-            cursor: pointer;
-            padding: 10px;
-        }
-
-        .hamburger-icon {
-            display: block;
-            width: 25px;
-            height: 3px;
-            margin: 5px 0;
-            background-color: white;
-            transition: all 0.3s ease;
-        }
-
-        /* Mobile menu styles */
+        /*
+         * RESPONSIVE STYLES
+         * Media queries for responsive design
+         */
         @media (max-width: 768px) {
+            /* Mobile navigation styles */
             .hamburger-menu {
                 display: block;
             }
@@ -448,6 +496,16 @@
                 text-align: center;
             }
 
+            nav {
+                padding: 0.25rem 0;
+            }
+
+            nav a {
+                padding: 0.25rem 0;
+                font-size: 1rem;
+                font-weight: 500;
+            }
+
             /* Hamburger icon animation */
             .hamburger-menu.active .hamburger-icon:nth-child(1) {
                 transform: rotate(45deg) translate(4.5px, 4.5px);
@@ -461,29 +519,12 @@
                 transform: rotate(-45deg) translate(7px, -7px);
             }
 
-        /* Copy success message */
-        .copy-success {
-            display: none;
-            position: fixed;
-            top: 70px;
-            right: 20px;
-            background-color: var(--secondary-color);
-            color: white;
-            padding: 10px 20px;
-            border-radius: 4px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-            z-index: 1000;
-            animation: fadeInOut 2s ease-in-out;
-        }
+            /* Mobile copy success message */
+            .copy-success {
+                top: 70px;
+            }
 
-        @keyframes fadeInOut {
-            0% { opacity: 0; }
-            20% { opacity: 1; }
-            80% { opacity: 1; }
-            100% { opacity: 0; }
-        }
-
-        @media (max-width: 768px) {
+            /* Mobile header layout */
             header .container {
                 flex-direction: column;
                 text-align: center;
@@ -498,20 +539,10 @@
                 justify-content: center;
             }
 
-
-            nav ul {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            nav li {
-                margin: 0.5rem 0;
-            }
-
+            /* Mobile repo grid */
             .github-repos {
                 grid-template-columns: 1fr;
             }
-        }
         }
     </style>
 </head>
