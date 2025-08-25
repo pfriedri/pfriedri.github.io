@@ -467,6 +467,72 @@
             border-top: 1px solid rgba(255, 255, 255, 0.2);
         }
 
+
+        /* Filter controls */
+        .filter-controls {
+            margin: 20px 0;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border: 1px solid #e9ecef;
+        }
+
+        .filter-toggle {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 500;
+        }
+
+        .toggle-switch {
+            position: relative;
+            width: 50px;
+            height: 24px;
+            background: #ccc;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .toggle-switch.active {
+            background: #007bff;
+        }
+
+        .toggle-slider {
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            width: 20px;
+            height: 20px;
+            background: white;
+            border-radius: 50%;
+            transition: transform 0.3s;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+        }
+
+        .toggle-switch.active .toggle-slider {
+            transform: translateX(26px);
+        }
+
+        /* Hide/show publications with smooth animation */
+        .publication {
+            margin-bottom: 15px;
+            transition: opacity 0.3s ease;
+        }
+
+        .publication.hidden {
+            opacity: 0;
+            pointer-events: none;
+            position: absolute;
+            left: -9999px;
+        }
+
+        .results-info {
+            margin: 10px 0;
+            color: #666;
+            font-style: italic;
+        }
+
         /*
          * RESPONSIVE STYLES
          * Media queries for responsive design
@@ -611,9 +677,15 @@
 
         <div class="news-item">
             <div class="news-date">June, 2025</div>
-            <h3>Research Highlighted at EXPO2025</h3>
+            <h3>4 Paper Accepted at MICCAI 2025 Workshops</h3>
             <p>
-                Our research on <a href="https://pfriedri.github.io/pcdiff-implant-io/">automatic implant generation</a> is being highlighted at the World EXPO 2025 in Osaka, Japan. It is part of the MIRACLE II booth in the <a href="https://vitality.swiss/en">Swiss Pavilion</a> and can be visited from 11 June - 12 August 2025.
+                I co-authored 4 papers accepted at different MICCAI workshops. Make sure to check out:
+                <ul>
+                <li> <a href="https://arxiv.org/abs/2507.13146">fastWDM3D: Fast and Accurate 3D Healthy Tissue Inpainting</a> accepted at DGM4MICCAI<br>
+                <li> <a href="https://arxiv.org/abs/2507.21863">VidFuncta: Towards Generalizable Neural Representations for Ultrasound Videos</a> accepted at ASMUS.<br>
+                <li> <a href="https://arxiv.org/abs/2508.06076">Towards Diagnostic Quality Flat-Panel Detector CT Imaging Using Diffusion Models</a> accepted at SWITCH<br>
+                <li> <a href="https://arxiv.org/abs/2508.16252">Towards MR-Based Trochleoplasty Planning</a> accepted at COLAS.
+                </ul>
             </p>
         </div>
 
@@ -666,6 +738,58 @@
     <div class="container">
         <h2>Publications</h2>
         <p>A collection of my published research articles. First-author contributions are <span style="background-color: rgba(174, 214, 241, 0.48);border-radius: 3px;padding: 2px 4px;">highlighted</span>.</p>
+
+        <div class="filter-controls">
+            <div class="filter-toggle">
+                <span>Show first-author publications only</span>
+                <div class="toggle-switch" id="firstAuthorToggle">
+                    <div class="toggle-slider"></div>
+                </div>
+            </div>
+            <div class="results-info" id="resultsInfo">Showing all publications</div>
+        </div>
+
+        <div class="publication">
+            <div class="publication-content">
+                <div class="publication-title">Towards MR-Based Trochleoplasty Planning</div>
+                <div class="publication-authors">Michael Wehrli, Alicia Durrer, <b>Paul Friedrich</b>, Sidaty El Hadramy, Edwin Li, Luana Brahaj, Carol C. Hasler, Philippe C. Cattin</div>
+                <div class="publication-journal">Workshop on Collaborative Intelligence and Autonomy in Image-Guided Surgery (COLAS @ MICCAI), 2025</div>
+                <div class="publication-links">
+                    <a href="https://wehrlimi.github.io/sr-3d-planning/" class="project-page"><i class="fas fa-globe icon-spacing"></i> Project Page</a>
+                    <a href="https://arxiv.org/abs/2508.06076"><i class="ai ai-arxiv icon-spacing"></i> arXiv</a>
+                    <a class="bibtex-button" data-publication="towardsmrbased"><i class="fas fa-quote-right icon-spacing"></i> BibTeX</a>
+                </div>
+                <div class="bibtex-dropdown" id="bibtex-towardsmrbased">
+                    <div class="bibtex-content">@article{wehrli2025towards,
+         title={Towards MR-Based Trochleoplasty Planning},
+         author={Wehrli, Michael and Durrer, Alicia and Friedrich, Paul and Hadramy, Sidaty El and Li, Edwin and Brahaj, Luana and Hasler, Carol C and Cattin, Philippe C},
+         journal={arXiv preprint arXiv:2508.06076},
+         year={2025}}</div>
+                    <button class="copy-button" data-target="bibtex-towardsmrbased"><i class="fas fa-copy"></i> Copy BibTeX</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="publication">
+            <div class="publication-content">
+                <div class="publication-title">Towards Diagnostic Quality Flat-Panel Detector CT Imaging Using Diffusion Models</div>
+                <div class="publication-authors">Hélène Corbaz, Anh Nguyen, Victor Schulze-Zachau, <b>Paul Friedrich</b>, Alicia Durrer, Florentin Bieder, Philippe C. Cattin, Marios N. Psychogios</div>
+                <div class="publication-journal">Stroke Workshop on Imaging and Treatment Challenges (SWITCH @ MICCAI), 2025</div>
+                <div class="publication-links">
+                    <a href="https://arxiv.org/abs/2508.16252"><i class="ai ai-arxiv icon-spacing"></i> arXiv</a>
+                    <a href="https://github.com/HeleneCorbaz/SWITCH-2025-FDCT-DDPM"><i class="fab fa-github icon-spacing"></i> Code</a>
+                    <a class="bibtex-button" data-publication="fdcti2i"><i class="fas fa-quote-right icon-spacing"></i> BibTeX</a>
+                </div>
+                <div class="bibtex-dropdown" id="bibtex-fdcti2i">
+                    <div class="bibtex-content">@article{corbaz2025towards,
+         title={Towards Diagnostic Quality Flat-Panel Detector CT Imaging Using Diffusion Models},
+         author={Corbaz, H{\'e}l{\`e}ne and Nguyen, Anh and Schulze-Zachau, Victor and Friedrich, Paul and Durrer, Alicia and Bieder, Florentin and Cattin, Philippe C and Psycogios, Marios N},
+         journal={arXiv preprint arXiv:2508.16252},
+         year={2025}}</div>
+                    <button class="copy-button" data-target="bibtex-fdcti2i"><i class="fas fa-copy"></i> Copy BibTeX</button>
+                </div>
+            </div>
+        </div>
 
         <div class="publication">
             <div class="publication-content">
@@ -1291,5 +1415,42 @@
         });
     });
 </script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const toggle = document.getElementById('firstAuthorToggle');
+        const resultsInfo = document.getElementById('resultsInfo');
+        const publications = document.querySelectorAll('.publication');
+
+        let isFiltered = false;
+
+        toggle.addEventListener('click', function() {
+            isFiltered = !isFiltered;
+            toggle.classList.toggle('active', isFiltered);
+
+            let visibleCount = 0;
+            let totalCount = publications.length;
+
+            publications.forEach(function(pub) {
+                const isFirstAuthor = pub.querySelector('.publication-highlight') !== null;
+
+                if (isFiltered && !isFirstAuthor) {
+                    pub.classList.add('hidden');
+                } else {
+                    pub.classList.remove('hidden');
+                    visibleCount++;
+                }
+            });
+
+            // Update results info
+            if (isFiltered) {
+                resultsInfo.textContent = `Showing ${visibleCount} first-author publications`;
+            } else {
+                resultsInfo.textContent = 'Showing all publications';
+            }
+        });
+    });
+</script>
+
 </body>
 </html>
