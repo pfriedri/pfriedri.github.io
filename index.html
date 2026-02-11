@@ -205,10 +205,13 @@
 
         /* Ensure white links in dark areas stay white */
         header a, header a:visited,
-        nav a, nav a:visited,
         footer a, footer a:visited,
         .social-icons a, .social-icons a:visited {
             color: inherit;
+        }
+
+        nav a, nav a:visited {
+            color: rgba(255,255,255,0.78);
         }
 
         .content-link {
