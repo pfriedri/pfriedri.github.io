@@ -203,6 +203,14 @@
         a { color: var(--primary); text-decoration: none; }
         a:visited { color: var(--primary-light); text-decoration: none; }
 
+        /* Ensure white links in dark areas stay white */
+        header a, header a:visited,
+        nav a, nav a:visited,
+        footer a, footer a:visited,
+        .social-icons a, .social-icons a:visited {
+            color: inherit;
+        }
+
         .content-link {
             color: var(--accent);
             text-decoration: none;
