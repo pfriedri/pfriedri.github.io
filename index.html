@@ -1041,6 +1041,15 @@
         <h2>News & Updates</h2>
 
         <div class="news-item">
+            <div class="news-date">April, 2026</div>
+            <h3>Paper accepted at ICML 2026</h3>
+            <p>
+                Our paper <a href="https://arxiv.org/abs/2512.14366">Optimizing Rank for High-Fidelity Implicit Neural Representations</a> has been accepted at ICML 2026.
+                We show that the low-frequency bias of vanilla MLP-based INRs stems from rank degradation during training rather than inherent architectural limitations, and that preserving high-rank updates, using optimizers such as MUON, consistently improves INR performance across network architectures.
+            </p>
+        </div>
+
+        <div class="news-item">
             <div class="news-date">March, 2026</div>
             <h3>New Preprint</h3>
             <p>
@@ -1051,7 +1060,7 @@
 
         <div class="news-item">
             <div class="news-date">January, 2026</div>
-            <h3>Paper accepted at MIDL 2026</h3>
+            <h3>Paper accepted at MIDL 2026 - Oral</h3>
             <p>
                 Our paper <a href="https://pfriedri.github.io/medfuncta-io/">MedFuncta: A Unified Framework for Learning Efficient Medical Neural Fields</a> has been accepted as an oral at MIDL 2026.
                 We introduce a modality agnostic continuous data representation based on meta-learned neural fields (NFs) and show how NFs can be generalized from single instances to large datasets.
@@ -1064,15 +1073,6 @@
             <p>
                 Our paper <a href="https://lipschitz-inrs.github.io">Beyond Uniformity: Regularizing Implicit Neural Representations Through a Lipschitz Lens</a> has been accepted at ICLR 2026.
                 We frame Lipschitz regularization as a budget allocation problem, investigating the performance of a diverse set of strategies on different inverse problems.
-            </p>
-        </div>
-
-        <div class="news-item">
-            <div class="news-date">December, 2025</div>
-            <h3>New Preprint</h3>
-            <p>
-                A new preprint <a href="https://arxiv.org/abs/2512.14366">Optimizing Rank for High-Fidelity Implicit Neural Representations</a> is available on arXiv.
-                We show that the low-frequency bias of vanilla MLP-based INRs stems from rank degradation during training rather than inherent architectural limitations, and that preserving high-rank updates, using optimizers such as MUON, consistently improves INR performance across network architectures.
             </p>
         </div>
 
@@ -1196,6 +1196,29 @@
             </div>
         </div>
 
+        <!-- Publication: Optimizing Rank -->
+        <div class="publication" data-year="2026">
+            <div class="publication-content">
+                <div class="publication-title">Optimizing Rank for High-Fidelity Implicit Neural Representations</div>
+                <div class="publication-authors">Julian McGinnis, Florian Hoelzl, Suprosanna Shit, Florentin Bieder, <b>Paul Friedrich</b>, Mark Muehlau, Bjoern Menze, Daniel Rueckert, Benedikt Wiestler</div>
+                <div class="publication-journal">International Conference on Learning Representations (ICML), 2026</div>
+                <div class="publication-links">
+                    <a href="https://muon-inrs.github.io" class="project-page"><i class="fas fa-globe icon-spacing"></i>Project Page</a>
+                    <a href="https://arxiv.org/abs/2512.14366"><i class="ai ai-arxiv icon-spacing"></i>arXiv</a>
+                    <a href="https://github.com/jqmcginnis/muon-inrs"><i class="fab fa-github icon-spacing"></i>Code</a>
+                    <a class="bibtex-button" data-publication="muon-inr"><i class="fas fa-quote-right icon-spacing"></i>BibTeX</a>
+                </div>
+                <div class="bibtex-dropdown" id="bibtex-muon-inr">
+                    <div class="bibtex-content">@article{mcginnis2025optimizing,
+                        title={Optimizing Rank for High-Fidelity Implicit Neural Representations},
+                        author={McGinnis, Julian and Hoelzl, Florian and Shit, Suprosanna and Bieder, Florentin and Friedrich, Paul and Muehlau, Mark and Menze, Bjoern and Rueckert, Daniel and Wiestler, Benedikt},
+                        journal={arXiv preprint arXiv:2512.14366},
+                        year={2025}}</div>
+                    <button class="copy-button" data-target="bibtex-muon-inr"><i class="fas fa-copy"></i> Copy BibTeX</button>
+                </div>
+            </div>
+        </div>
+
         <!-- Publication: MedFuncta (HIGHLIGHT) -->
         <div class="publication" data-year="2026">
             <div class="publication-content publication-highlight">
@@ -1217,29 +1240,6 @@
                         journal={arXiv preprint arXiv:2502.14401},
                         year={2025}}</div>
                     <button class="copy-button" data-target="bibtex-medfuncta"><i class="fas fa-copy"></i> Copy BibTeX</button>
-                </div>
-            </div>
-        </div>
-
-        <!-- Publication: Optimizing Rank -->
-        <div class="publication" data-year="2025">
-            <div class="publication-content">
-                <div class="publication-title">Optimizing Rank for High-Fidelity Implicit Neural Representations</div>
-                <div class="publication-authors">Julian McGinnis, Florian Hoelzl, Suprosanna Shit, Florentin Bieder, <b>Paul Friedrich</b>, Mark Muehlau, Bjoern Menze, Daniel Rueckert, Benedikt Wiestler</div>
-                <div class="publication-journal">arXiv preprint, 2025</div>
-                <div class="publication-links">
-                    <a href="https://muon-inrs.github.io" class="project-page"><i class="fas fa-globe icon-spacing"></i>Project Page</a>
-                    <a href="https://arxiv.org/abs/2512.14366"><i class="ai ai-arxiv icon-spacing"></i>arXiv</a>
-                    <a href="https://github.com/jqmcginnis/muon-inrs"><i class="fab fa-github icon-spacing"></i>Code</a>
-                    <a class="bibtex-button" data-publication="muon-inr"><i class="fas fa-quote-right icon-spacing"></i>BibTeX</a>
-                </div>
-                <div class="bibtex-dropdown" id="bibtex-muon-inr">
-                    <div class="bibtex-content">@article{mcginnis2025optimizing,
-                        title={Optimizing Rank for High-Fidelity Implicit Neural Representations},
-                        author={McGinnis, Julian and Hoelzl, Florian and Shit, Suprosanna and Bieder, Florentin and Friedrich, Paul and Muehlau, Mark and Menze, Bjoern and Rueckert, Daniel and Wiestler, Benedikt},
-                        journal={arXiv preprint arXiv:2512.14366},
-                        year={2025}}</div>
-                    <button class="copy-button" data-target="bibtex-muon-inr"><i class="fas fa-copy"></i> Copy BibTeX</button>
                 </div>
             </div>
         </div>
