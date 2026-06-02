@@ -340,7 +340,7 @@
             transition: border-color 0.2s;
         }
         .content-link:hover { border-color: var(--accent); }
-        .content-link:visited { color: var(--accent-light); }
+        .content-link:visited { color: var(--accent); }
 
         /* ── SECTIONS ── */
         section {
@@ -1084,8 +1084,8 @@
                 <ul>
                     <li><a href="https://arxiv.org/abs/2507.13146">fastWDM3D: Fast and Accurate 3D Healthy Tissue Inpainting</a> accepted at DGM4MICCAI</li>
                     <li><a href="https://arxiv.org/abs/2507.21863">VidFuncta: Towards Generalizable Neural Representations for Ultrasound Videos</a> accepted at ASMUS</li>
-                    <li><a href="https://arxiv.org/abs/2508.06076">Towards Diagnostic Quality Flat-Panel Detector CT Imaging Using Diffusion Models</a> accepted at SWITCH</li>
-                    <li><a href="https://arxiv.org/abs/2508.16252">Towards MR-Based Trochleoplasty Planning</a> accepted at COLAS</li>
+                    <li><a href="https://arxiv.org/abs/2508.16252">Towards Diagnostic Quality Flat-Panel Detector CT Imaging Using Diffusion Models</a> accepted at SWITCH</li>
+                    <li><a href="https://arxiv.org/abs/2508.06076">Towards MR-Based Trochleoplasty Planning</a> accepted at COLAS</li>
                 </ul>
             </div>
 
@@ -1202,7 +1202,7 @@
             <div class="publication-content">
                 <div class="publication-title">Optimizing Rank for High-Fidelity Implicit Neural Representations</div>
                 <div class="publication-authors">Julian McGinnis, Florian Hoelzl, Suprosanna Shit, Florentin Bieder, <b>Paul Friedrich</b>, Mark Muehlau, Bjoern Menze, Daniel Rueckert, Benedikt Wiestler</div>
-                <div class="publication-journal">International Conference on Learning Representations (ICML), 2026</div>
+                <div class="publication-journal">International Conference on Machine Learning (ICML), 2026</div>
                 <div class="publication-links">
                     <a href="https://muon-inrs.github.io" class="project-page"><i class="fas fa-globe icon-spacing"></i>Project Page</a>
                     <a href="https://arxiv.org/abs/2512.14366"><i class="ai ai-arxiv icon-spacing"></i>arXiv</a>
@@ -1624,7 +1624,7 @@
         <div class="github-repos">
             <a href="https://github.com/pfriedri/medfuncta" class="repo-card">
                 <h3>pfriedri/medfuncta</h3>
-                <p>[MIDL'26] PyTorch implementation for "MedFuncta: A Unified Framework for Learning Efficient Medical Neural Fields"</p>
+                <p>[MIDL'26, Oral] PyTorch implementation for "MedFuncta: A Unified Framework for Learning Efficient Medical Neural Fields"</p>
                 <div class="repo-meta">
                     <div><i class="fas fa-star" style="color: var(--accent-warm);"></i> <span id="medfuncta-stars">--</span></div>
                     <div><i class="fas fa-code-branch"></i> <span id="medfuncta-forks">--</span></div>
@@ -1658,6 +1658,16 @@
                 <div class="repo-meta">
                     <div><i class="fas fa-star" style="color: var(--accent-warm);"></i> <span id="pcdiff-stars">--</span></div>
                     <div><i class="fas fa-code-branch"></i> <span id="pcdiff-forks">--</span></div>
+                    <div><i class="fas fa-circle" style="color: #3572A5; font-size: 10px;"></i> Python</div>
+                </div>
+            </a>
+
+            <a href="https://github.com/pfriedri/autoffs" class="repo-card">
+                <h3>pfriedri/autoffs</h3>
+                <p>PyTorch implementation for "AutoFFS: Adversarial Deformations for Facial Feminization Surgery Planning"</p>
+                <div class="repo-meta">
+                    <div><i class="fas fa-star" style="color: var(--accent-warm);"></i> <span id="autoffs-stars">--</span></div>
+                    <div><i class="fas fa-code-branch"></i> <span id="autoffs-forks">--</span></div>
                     <div><i class="fas fa-circle" style="color: #3572A5; font-size: 10px;"></i> Python</div>
                 </div>
             </a>
@@ -1785,6 +1795,7 @@
 
         async function updateRepoStats() {
             const repos = [
+                { name: 'autoffs', username: 'pfriedri', element: 'autoffs' },
                 { name: 'medfuncta', username: 'pfriedri', element: 'medfuncta' },
                 { name: 'wdm-3d', username: 'pfriedri', element: 'wdm-3d' },
                 { name: 'cwdm', username: 'pfriedri', element: 'cwdm' },
