@@ -10,6 +10,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌐</text></svg>">
     <style>
         :root {
@@ -379,6 +380,91 @@
             transition: border-color 0.2s;
         }
         .about a:hover { border-color: var(--accent); }
+
+        /* ── MEDMCP FEATURE ── */
+        .medmcp-card {
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 1.1rem;
+            background: radial-gradient(90% 200% at 90% 0%, rgba(43, 79, 163, 0.35) 0%, rgba(43, 79, 163, 0) 55%), #0d0f14;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 14px;
+            padding: 1.4rem 1.6rem;
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            font-family: 'Inter', system-ui, sans-serif;
+        }
+
+        .medmcp-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 44px;
+            height: 44px;
+            background: #181c25;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            flex-shrink: 0;
+        }
+
+        .medmcp-name {
+            font-weight: 800;
+            font-size: 1.15rem;
+            letter-spacing: -0.02em;
+            line-height: 1.3;
+            color: #e4e8f0;
+        }
+
+        .medmcp-tagline {
+            color: #bcc3d4;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        .medmcp-btn, .medmcp-btn:visited {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-left: auto;
+            flex-shrink: 0;
+            background: linear-gradient(110deg, #D22229 0%, #d96090 45%, #3A63CC 100%);
+            color: #fff;
+            font-weight: 600;
+            font-size: 0.88rem;
+            padding: 0.55rem 1.2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .medmcp-btn:hover {
+            transform: translateY(-1px);
+            filter: brightness(1.15);
+            box-shadow: 0 4px 16px rgba(43, 79, 163, 0.4);
+        }
+
+        .medmcp-btn i {
+            font-size: 0.75rem;
+            transition: transform 0.2s;
+        }
+
+        .medmcp-btn:hover i {
+            transform: translateX(2px);
+        }
+
+        @media (max-width: 768px) {
+            .medmcp-card {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.9rem;
+                padding: 1.25rem;
+            }
+
+            .medmcp-btn {
+                margin-left: 0;
+            }
+        }
 
         /* ── NEWS ── */
         .news-item {
@@ -974,6 +1060,7 @@
         <div class="nav-links">
             <ul>
                 <li><a href="#about">About</a></li>
+                <li><a href="#medmcp">MedMCP</a></li>
                 <li><a href="#news">News</a></li>
                 <li><a href="#publications">Publications</a></li>
                 <li><a href="#research">GitHub Projects</a></li>
@@ -1033,6 +1120,26 @@
             I'm interested in medical image analysis, implicit neural representations, 3D deep learning and generative modeling. My current research is part of the <a href="https://dbe.unibas.ch/en/research/flagship-project-miracle/">MIRACLE II</a> project and focuses on conditional shape generation and manipulation tasks as well as (un)conditional 3D medical image generation.
             I'm particularly interested in different types of 3D data representations, including voxel grids, point clouds, meshes, triplanes, and implicit neural representations.
         </p>
+    </div>
+</section>
+
+<section id="medmcp">
+    <div class="container fade-in">
+        <h2>Flagship Project</h2>
+        <div class="medmcp-card">
+            <div class="medmcp-icon">
+                <svg width="26" height="26" viewBox="0 0 32 32" fill="none" stroke="#7fa8f5" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <polygon points="16 7 8 11 16 15 24 11 16 7"/>
+                    <polyline points="8 16 16 20 24 16"/>
+                    <polyline points="8 21 16 25 24 21"/>
+                </svg>
+            </div>
+            <div>
+                <div class="medmcp-name">MedMCP</div>
+                <div class="medmcp-tagline">The next generation of agentic medical image processing.</div>
+            </div>
+            <a class="medmcp-btn" href="https://medmcp.ai" target="_blank" rel="noopener">Explore <i class="fas fa-arrow-right"></i></a>
+        </div>
     </div>
 </section>
 
