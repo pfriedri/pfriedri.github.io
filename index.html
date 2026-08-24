@@ -1751,6 +1751,16 @@
         <p style="color: var(--text-secondary); margin-bottom: 1rem;">A collection of my public GitHub repositories.</p>
 
         <div class="github-repos">
+            <a href="https://github.com/medmcp/medmcp" class="repo-card">
+                <h3>medmcp/medmcp</h3>
+                <p>MedMCP: An Open Agentic Ecosystem for Medical Imaging Workflows</p>
+                <div class="repo-meta">
+                    <div><i class="fas fa-star" style="color: var(--accent-warm);"></i> <span id="medmcp-stars">--</span></div>
+                    <div><i class="fas fa-code-branch"></i> <span id="medmcp-forks">--</span></div>
+                    <div><i class="fas fa-circle" style="color: #3572A5; font-size: 10px;"></i> Python</div>
+                </div>
+            </a>
+
             <a href="https://github.com/pfriedri/medfuncta" class="repo-card">
                 <h3>pfriedri/medfuncta</h3>
                 <p>[MIDL'26, Oral] PyTorch implementation for "MedFuncta: A Unified Framework for Learning Efficient Medical Neural Fields"</p>
@@ -1925,6 +1935,7 @@
         async function updateRepoStats() {
             const repos = [
                 { name: 'autoffs', username: 'pfriedri', element: 'autoffs' },
+                { name: 'medmcp', username: 'medmcp', element: 'medmcp' },
                 { name: 'medfuncta', username: 'pfriedri', element: 'medfuncta' },
                 { name: 'wdm-3d', username: 'pfriedri', element: 'wdm-3d' },
                 { name: 'cwdm', username: 'pfriedri', element: 'cwdm' },
