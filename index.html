@@ -20,6 +20,7 @@
             --accent-hover: #a8654a;
             --accent-subtle: rgba(192, 120, 90, 0.08);
             --accent-warm: #e6a756;
+            --award: #c0392b;
             --text: #2d2d2d;
             --text-secondary: #5a6272;
             --border: #e2e5ea;
@@ -669,6 +670,11 @@
             margin-bottom: 0.3rem;
         }
 
+        .award {
+            color: var(--award);
+            font-weight: 600;
+        }
+
         .publication-links {
             margin-top: 0.65rem;
             display: flex;
@@ -1094,7 +1100,7 @@
             <img src="/images/profile.jpeg" alt="Profile Photo" class="profile-image">
             <div class="profile-info">
                 <h1>Paul Friedrich</h1>
-                <p>PhD Student</p>
+                <p>Postdoctoral Researcher</p>
                 <p>Center for medical Image Analysis & Navigation (CIAN)</p>
                 <p>University of Basel</p>
                 <div class="social-icons">
@@ -1113,12 +1119,10 @@
     <div class="container fade-in">
         <h2>About Me</h2>
         <p>
-            I am a fourth year PhD student at the <a href="https://dbe.unibas.ch/en/cian/">Center for medical Image Analysis and Navigation (CIAN)</a> of the <a href="https://www.unibas.ch/en.html">University of Basel</a>. My work
-            is supervised by <a href="https://dbe.unibas.ch/en/persons/philippe-claude-cattin/">Philippe Cattin</a> and <a href="https://dbe.unibas.ch/en/research/regenerative-surgery/swiss-mam-medical-additive-manufacturing-research-group/group-members/florian-m-thieringer/">Florian Thieringer</a>.
+            I am a postdoctoral researcher at the <a href="https://dbe.unibas.ch/en/cian/">Center for medical Image Analysis and Navigation (CIAN)</a> of the <a href="https://www.unibas.ch/en.html">University of Basel</a>.
         </p>
         <p>
             I'm interested in medical image analysis, agentic systems, implicit neural representations, 3D deep learning and generative modeling.
-            I'm particularly interested in different types of 3D data representations, including voxel grids, point clouds, meshes, triplanes, and implicit neural representations.
             Lately, I've been heavily involved in developing MedMCP, our open agentic ecosystem for medical imaging pipelines.
         </p>
     </div>
@@ -1147,6 +1151,13 @@
 <section id="news">
     <div class="container fade-in">
         <h2>News & Updates</h2>
+
+        <div class="news-item">
+            <div class="news-date">September, 2026</div>
+            <h3>PhD Thesis Defended &amp; Best Paper Award at ShapeMI 2026</h3>
+            <p>I successfully defended my PhD thesis <i>Efficient Medical Image Processing Across Representations</i> at the University of Basel and graduated summa cum laude.</p>
+            <p>In addition, our paper <a href="https://pfriedri.github.io/autoffs-io/">AutoFFS: Adversarial Deformations for Facial Feminization Surgery Planning</a> won the <span class="award">Best Paper Award</span> at the Workshop on Shape in Medical Imaging (ShapeMI @ MICCAI 2026).</p>
+        </div>
 
         <div class="news-item">
             <div class="news-date">August, 2026</div>
@@ -1265,6 +1276,30 @@
             <div class="results-info" id="resultsInfo">Showing all publications</div>
         </div>
 
+        <!-- Publication: MedMCP (HIGHLIGHT, shared first author) -->
+        <div class="publication" data-year="2026">
+            <div class="publication-content publication-highlight">
+                <div class="publication-title">MedMCP: An Open Agentic Ecosystem for Medical Imaging Workflows</div>
+                <div class="publication-authors"><b>Paul Friedrich</b><sup>*</sup>, Julian McGinnis<sup>*</sup>, Mark Mühlau, Jan S. Kirschke, Martin Styner, Daniel Rueckert, Philippe C. Cattin, Benedikt Wiestler</div>
+                <div class="publication-journal">Preprint, 2026</div>
+                <div class="publication-links">
+                    <a href="https://medmcp.ai" class="project-page"><i class="fas fa-globe icon-spacing"></i>Project Page</a>
+                    <a href="https://medmcp.ai/assets/medmcp.pdf"><i class="fas fa-file-pdf icon-spacing"></i>PDF</a>
+                    <a href="https://github.com/medmcp/medmcp"><i class="fab fa-github icon-spacing"></i>Code</a>
+                    <a class="bibtex-button" data-publication="medmcp"><i class="fas fa-quote-right icon-spacing"></i>BibTeX</a>
+                </div>
+                <div class="bibtex-dropdown" id="bibtex-medmcp">
+                    <div class="bibtex-content">@misc{friedrich2026medmcp,
+                        title={MedMCP: An Open Agentic Ecosystem for Medical Imaging Workflows},
+                        author={Friedrich, Paul and McGinnis, Julian and M{\"u}hlau, Mark and Kirschke, Jan S and Styner, Martin and Rueckert, Daniel and Cattin, Philippe C and Wiestler, Benedikt},
+                        howpublished={\url{https://medmcp.ai/assets/medmcp.pdf}},
+                        note={Preprint},
+                        year={2026}}</div>
+                    <button class="copy-button" data-target="bibtex-medmcp"><i class="fas fa-copy"></i> Copy BibTeX</button>
+                </div>
+            </div>
+        </div>
+
         <div class="publication" data-year="2026">
             <div class="publication-content">
                 <div class="publication-title">Modelling Geographic Atrophy Progression using Implicit Neural Representations</div>
@@ -1292,7 +1327,7 @@
             <div class="publication-content publication-highlight">
                 <div class="publication-title">AutoFFS: Adversarial Deformations for Facial Feminization Surgery Planning</div>
                 <div class="publication-authors"><b>Paul Friedrich</b>, Florentin Bieder, Florian M. Thieringer, Philippe C. Cattin</div>
-                <div class="publication-journal">Workshop on Shape in Medical Imaging (ShapeMI @ MICCAI) - Oral, 2026</div>
+                <div class="publication-journal">Workshop on Shape in Medical Imaging (ShapeMI @ MICCAI) - <span class="award">Best Paper Award</span>, 2026</div>
                 <div class="publication-links">
                     <a href="https://pfriedri.github.io/autoffs-io/" class="project-page"><i class="fas fa-globe icon-spacing"></i>Project Page</a>
                     <a href="https://arxiv.org/abs/2603.02288"><i class="fas fa-file-pdf icon-spacing"></i>PDF</a>
@@ -1811,7 +1846,7 @@
 
             <a href="https://github.com/pfriedri/autoffs" class="repo-card">
                 <h3>pfriedri/autoffs</h3>
-                <p>[ShapeMI'26, Oral] PyTorch implementation for "AutoFFS: Adversarial Deformations for Facial Feminization Surgery Planning"</p>
+                <p>[ShapeMI'26, <span class="award">Best Paper Award</span>] PyTorch implementation for "AutoFFS: Adversarial Deformations for Facial Feminization Surgery Planning"</p>
                 <div class="repo-meta">
                     <div><i class="fas fa-star" style="color: var(--accent-warm);"></i> <span id="autoffs-stars">--</span></div>
                     <div><i class="fas fa-code-branch"></i> <span id="autoffs-forks">--</span></div>
