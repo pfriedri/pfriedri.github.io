@@ -117,126 +117,6 @@
             transform-origin: center center;
         }
 
-        /* ── WORKSHOP BANNER ── */
-        .workshop-banner {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
-            border-bottom: 3px solid var(--accent);
-            padding: 0.85rem 0;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .workshop-banner::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: repeating-linear-gradient(
-                    90deg,
-                    transparent,
-                    transparent 60px,
-                    rgba(255,255,255,0.015) 60px,
-                    rgba(255,255,255,0.015) 61px
-            );
-            pointer-events: none;
-        }
-
-        .banner-inner {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 1.5rem;
-            padding-right: 1.5rem;
-        }
-
-        .banner-content {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            min-width: 0;
-        }
-
-        .banner-badge {
-            flex-shrink: 0;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            background: var(--accent);
-            color: white;
-            font-size: 0.68rem;
-            font-weight: 700;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-            padding: 0.3rem 0.65rem;
-            border-radius: 4px;
-            white-space: nowrap;
-        }
-
-        .banner-text {
-            color: rgba(255,255,255,0.92);
-            font-size: 0.9rem;
-            font-weight: 400;
-            line-height: 1.4;
-        }
-
-        .banner-text strong {
-            color: #fff;
-            font-weight: 600;
-        }
-
-        .banner-link {
-            flex-shrink: 0;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.4rem;
-            background: white;
-            border: 1px solid white;
-            color: var(--primary);
-            font-size: 0.82rem;
-            font-weight: 600;
-            padding: 0.45rem 1.1rem;
-            border-radius: 5px;
-            text-decoration: none;
-            transition: all 0.2s;
-            white-space: nowrap;
-        }
-
-        .banner-link:hover {
-            background: var(--accent);
-            border-color: var(--accent);
-            color: white;
-        }
-
-        .banner-link i {
-            font-size: 0.7rem;
-            transition: transform 0.2s;
-        }
-
-        .banner-link:hover i {
-            transform: translateX(2px);
-        }
-
-        .banner-dismiss {
-            position: absolute;
-            top: 0.45rem;
-            right: 0.75rem;
-            background: none;
-            border: none;
-            color: rgba(255,255,255,0.5);
-            cursor: pointer;
-            padding: 2px 6px;
-            font-size: 1.2rem;
-            line-height: 1;
-            transition: color 0.2s;
-            z-index: 2;
-        }
-
-        .banner-dismiss:hover {
-            color: rgba(255,255,255,0.9);
-        }
-
         /* ── HEADER ── */
         header {
             background: var(--primary);
@@ -1022,23 +902,6 @@
             .github-repos { grid-template-columns: 1fr; }
 
             section { padding: 2rem 0; }
-
-            /* Banner responsive */
-            .banner-inner {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 0.75rem;
-            }
-
-            .banner-content {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 0.5rem;
-            }
-
-            .banner-text {
-                font-size: 0.85rem;
-            }
         }
 
         /* ── SCROLL ANIMATION ── */
@@ -1078,21 +941,6 @@
         </div>
     </div>
 </nav>
-
-<!-- ── WORKSHOP BANNER ── -->
-<div class="workshop-banner" id="workshopBanner">
-    <button class="banner-dismiss" onclick="document.getElementById('workshopBanner').style.display='none'" aria-label="Dismiss banner">&times;</button>
-    <div class="container">
-        <div class="banner-inner">
-            <div class="banner-content">
-                <span class="banner-badge"><i class="fas fa-bullhorn" style="margin-right: 4px;"></i> New</span>
-                <span class="banner-text"><strong>Off-Grid Workshop @ MICCAI 2026</strong> — 1st Workshop on Continuous Representations and Grid-Free Methods in Medical Imaging · Strasbourg, France · October 1, 2026</span>
-            </div>
-            <a href="https://off-grid-workshop.github.io" class="banner-link" target="_blank">Workshop Website <i class="fas fa-arrow-right"></i></a>
-        </div>
-    </div>
-</div>
-
 
 <header>
     <div class="container">
@@ -1153,6 +1001,12 @@
         <h2>News & Updates</h2>
 
         <div class="news-item">
+            <div class="news-date">October, 2026</div>
+            <h3>Speaking at the ESC Digital &amp; AI Summit 2026</h3>
+            <p>I will be presenting <a href="https://medmcp.ai">MedMCP: An Open Agentic Ecosystem for Medical Imaging Workflows</a> at the <a href="https://www.escardio.org/events/congresses/digital-ai-summit/">ESC Digital &amp; AI Summit 2026</a> in Basel, Switzerland, as part of the symposium <a href="https://esc365.escardio.org/ESC-Digital-AI-Summit/sessions/20865-agency-is-all-you-need-agentic-ai-and-dynamic-learning">Agency is all you need? Agentic AI and dynamic learning</a> on November 12.</p>
+        </div>
+
+        <div class="news-item">
             <div class="news-date">September, 2026</div>
             <h3>PhD Thesis Defended &amp; Best Paper Award at ShapeMI 2026</h3>
             <p>I successfully defended my PhD thesis <i>Efficient Medical Image Processing Across Representations</i> at the University of Basel and graduated summa cum laude.</p>
@@ -1177,16 +1031,16 @@
 
         <div class="news-item">
             <div class="news-date">April, 2026</div>
-            <h3>Paper accepted at ICML 2026</h3>
+            <h3>Paper Accepted at ICML 2026</h3>
             <p>
                 Our paper <a href="https://arxiv.org/abs/2512.14366">Optimizing Rank for High-Fidelity Implicit Neural Representations</a> has been accepted at ICML 2026.
-                We show that the low-frequency bias of vanilla MLP-based INRs stems from rank degradation during training rather than inherent architectural limitations, and that preserving high-rank updates, using optimizers such as MUON, consistently improves INR performance across network architectures.
+                We show that the low-frequency bias of vanilla MLP-based INRs stems from rank degradation during training rather than inherent architectural limitations, and that preserving high-rank updates, using optimizers such as Muon, consistently improves INR performance across network architectures.
             </p>
         </div>
 
         <div class="news-item">
             <div class="news-date">January, 2026</div>
-            <h3>Paper accepted at MIDL 2026 - Oral</h3>
+            <h3>Paper Accepted at MIDL 2026 - Oral</h3>
             <p>
                 Our paper <a href="https://pfriedri.github.io/medfuncta-io/">MedFuncta: A Unified Framework for Learning Efficient Medical Neural Fields</a> has been accepted as an oral at MIDL 2026.
                 We introduce a modality agnostic continuous data representation based on meta-learned neural fields (NFs) and show how NFs can be generalized from single instances to large datasets.
@@ -1195,7 +1049,7 @@
 
         <div class="news-item">
             <div class="news-date">January, 2026</div>
-            <h3>Paper accepted at ICLR 2026</h3>
+            <h3>Paper Accepted at ICLR 2026</h3>
             <p>
                 Our paper <a href="https://lipschitz-inrs.github.io">Beyond Uniformity: Regularizing Implicit Neural Representations Through a Lipschitz Lens</a> has been accepted at ICLR 2026.
                 We frame Lipschitz regularization as a budget allocation problem, investigating the performance of a diverse set of strategies on different inverse problems.
@@ -1354,7 +1208,7 @@
                 <div class="publication-journal">International Conference on Learning Representations (ICLR), 2026</div>
                 <div class="publication-links">
                     <a href="https://lipschitz-inrs.github.io" class="project-page"><i class="fas fa-globe icon-spacing"></i>Project Page</a>
-                    <a href="https://openreview.net/forum?id=REEdaR0zqj"><i class="fas fa-file-pdf icon-spacing"></i>OpenReview</a>
+                    <a href="https://proceedings.iclr.cc/paper_files/paper/2026/hash/655846cc914cb7ff977a1ada40866441-Abstract-Conference.html"><i class="fas fa-file-pdf icon-spacing"></i>PDF</a>
                     <a href="https://github.com/jqmcginnis/lipschitz-inrs"><i class="fab fa-github icon-spacing"></i>Code</a>
                     <a class="bibtex-button" data-publication="lipschitz"><i class="fas fa-quote-right icon-spacing"></i>BibTeX</a>
                 </div>
@@ -1363,6 +1217,7 @@
                         title={Beyond Uniformity: Regularizing Implicit Neural Representations Through a Lipschitz Lens},
                         author={McGinnis, Julian and Shit, Suprosanna and Hoelzl, Florian and Friedrich, Paul and Bueschl, Paul and Sideri-Lampretsa, Vasiliki and Muehlau, Mark and Cattin, Philippe C and Menze, Bjoern and Rueckert, Daniel and Wiestler, Benedikt},
                         booktitle={International Conference on Learning Representations},
+                        pages={62041--62089},
                         year={2026}}</div>
                     <button class="copy-button" data-target="bibtex-lipschitz"><i class="fas fa-copy"></i> Copy BibTeX</button>
                 </div>
@@ -1377,16 +1232,19 @@
                 <div class="publication-journal">International Conference on Machine Learning (ICML), 2026</div>
                 <div class="publication-links">
                     <a href="https://muon-inrs.github.io" class="project-page"><i class="fas fa-globe icon-spacing"></i>Project Page</a>
+                    <a href="https://proceedings.mlr.press/v306/mcginnis26a.html"><i class="fas fa-file-pdf icon-spacing"></i>PDF</a>
                     <a href="https://arxiv.org/abs/2512.14366"><i class="ai ai-arxiv icon-spacing"></i>arXiv</a>
-                    <a href="https://github.com/jqmcginnis/muon-inrs"><i class="fab fa-github icon-spacing"></i>Code</a>
+                    <a href="https://github.com/jqmcginnis/stable_rank_inrs"><i class="fab fa-github icon-spacing"></i>Code</a>
                     <a class="bibtex-button" data-publication="muon-inr"><i class="fas fa-quote-right icon-spacing"></i>BibTeX</a>
                 </div>
                 <div class="bibtex-dropdown" id="bibtex-muon-inr">
-                    <div class="bibtex-content">@article{mcginnis2025optimizing,
+                    <div class="bibtex-content">@inproceedings{mcginnis2026optimizing,
                         title={Optimizing Rank for High-Fidelity Implicit Neural Representations},
                         author={McGinnis, Julian and Hoelzl, Florian and Shit, Suprosanna and Bieder, Florentin and Friedrich, Paul and Muehlau, Mark and Menze, Bjoern and Rueckert, Daniel and Wiestler, Benedikt},
-                        journal={arXiv preprint arXiv:2512.14366},
-                        year={2025}}</div>
+                        booktitle={International Conference on Machine Learning},
+                        pages={87267--87296},
+                        year={2026},
+                        organization={PMLR}}</div>
                     <button class="copy-button" data-target="bibtex-muon-inr"><i class="fas fa-copy"></i> Copy BibTeX</button>
                 </div>
             </div>
@@ -1400,18 +1258,20 @@
                 <div class="publication-journal">Medical Imaging with Deep Learning (MIDL) - Oral, 2026</div>
                 <div class="publication-links">
                     <a href="https://pfriedri.github.io/medfuncta-io/" class="project-page"><i class="fas fa-globe icon-spacing"></i>Project Page</a>
-                    <a href="https://arxiv.org/abs/2502.14401"><i class="fas fa-file-pdf icon-spacing"></i>PDF</a>
+                    <a href="https://proceedings.mlr.press/v315/friedrich26a.html"><i class="fas fa-file-pdf icon-spacing"></i>PDF</a>
                     <a href="https://arxiv.org/abs/2502.14401"><i class="ai ai-arxiv icon-spacing"></i>arXiv</a>
                     <a href="https://github.com/pfriedri/medfuncta/"><i class="fab fa-github icon-spacing"></i>Code</a>
                     <a href="https://doi.org/10.5281/zenodo.14898708"><i class="fas fa-database icon-spacing"></i>Dataset</a>
                     <a class="bibtex-button" data-publication="medfuncta"><i class="fas fa-quote-right icon-spacing"></i>BibTeX</a>
                 </div>
                 <div class="bibtex-dropdown" id="bibtex-medfuncta">
-                    <div class="bibtex-content">@article{friedrich2025medfuncta,
+                    <div class="bibtex-content">@inproceedings{friedrich2026medfuncta,
                         title={MedFuncta: A Unified Framework for Learning Efficient Medical Neural Fields},
                         author={Friedrich, Paul and Bieder, Florentin and McGinnis, Julian and Wolleb, Julia and Rueckert, Daniel and Cattin, Philippe C},
-                        journal={arXiv preprint arXiv:2502.14401},
-                        year={2025}}</div>
+                        booktitle={Medical Imaging with Deep Learning},
+                        pages={56--87},
+                        year={2026},
+                        organization={PMLR}}</div>
                     <button class="copy-button" data-target="bibtex-medfuncta"><i class="fas fa-copy"></i> Copy BibTeX</button>
                 </div>
             </div>
@@ -1421,18 +1281,21 @@
         <div class="publication" data-year="2026">
             <div class="publication-content">
                 <div class="publication-title">Deep Generative Models for Enhanced Vitreous OCT Imaging</div>
-                <div class="publication-authors">Simone Sarrocco, Philippe C. Cattin, Peter M. Maloca, Philippe Valmaggia*, <b>Paul Friedrich</b>*</div>
+                <div class="publication-authors">Simone Sarrocco, Philippe C. Cattin, Peter M. Maloca, <b>Paul Friedrich</b><sup>*</sup>, Philippe Valmaggia<sup>*</sup></div>
                 <div class="publication-journal">Nature Scientific Reports, 2026</div>
                 <div class="publication-links">
+                    <a href="https://www.nature.com/articles/s41598-026-68477-8"><i class="fas fa-file-pdf icon-spacing"></i>PDF</a>
                     <a href="https://arxiv.org/abs/2511.00881"><i class="ai ai-arxiv icon-spacing"></i>arXiv</a>
                     <a class="bibtex-button" data-publication="dgmoct"><i class="fas fa-quote-right icon-spacing"></i>BibTeX</a>
                 </div>
                 <div class="bibtex-dropdown" id="bibtex-dgmoct">
-                    <div class="bibtex-content">@article{sarrocco2025deep,
-                        title={Deep Generative Models for Enhanced Vitreous OCT Imaging},
+                    <div class="bibtex-content">@article{sarrocco2026deep,
+                        title={Deep generative models for enhanced vitreous OCT imaging},
                         author={Sarrocco, Simone and Cattin, Philippe C and Maloca, Peter M and Friedrich, Paul and Valmaggia, Philippe},
-                        journal={arXiv preprint arXiv:2511.00881},
-                        year={2025}}</div>
+                        journal={Scientific Reports},
+                        year={2026},
+                        doi={10.1038/s41598-026-68477-8},
+                        publisher={Nature Publishing Group}}</div>
                     <button class="copy-button" data-target="bibtex-dgmoct"><i class="fas fa-copy"></i> Copy BibTeX</button>
                 </div>
             </div>
@@ -1442,7 +1305,7 @@
         <div class="publication" data-year="2025">
             <div class="publication-content">
                 <div class="publication-title">TabINR: An Implicit Neural Representation Framework for Tabular Data Imputation</div>
-                <div class="publication-authors">Vincent Ochs, Florentin Bieder, Sidathy el Hadramy, <b>Paul Friedrich</b>, Stephanie Taha-Mehlitz, Anas Taha, Philippe C. Cattin</div>
+                <div class="publication-authors">Vincent Ochs, Florentin Bieder, Sidaty El Hadramy, <b>Paul Friedrich</b>, Stephanie Taha-Mehlitz, Anas Taha, Philippe C. Cattin</div>
                 <div class="publication-journal">arXiv preprint, 2025</div>
                 <div class="publication-links">
                     <a href="https://arxiv.org/abs/2510.01136"><i class="ai ai-arxiv icon-spacing"></i>arXiv</a>
@@ -1451,7 +1314,7 @@
                 <div class="bibtex-dropdown" id="bibtex-tabinr">
                     <div class="bibtex-content">@article{ochs2025tabinr,
                         title={TabINR: An Implicit Neural Representation Framework for Tabular Data Imputation},
-                        author={Ochs, Vincent and Bieder, Florentin and Hadramy, Sidaty el and Friedrich, Paul and Taha-Mehlitz, Stephanie and Taha, Anas and Cattin, Philippe C},
+                        author={Ochs, Vincent and Bieder, Florentin and Hadramy, Sidaty El and Friedrich, Paul and Taha-Mehlitz, Stephanie and Taha, Anas and Cattin, Philippe C},
                         journal={arXiv preprint arXiv:2510.01136},
                         year={2025}}</div>
                     <button class="copy-button" data-target="bibtex-tabinr"><i class="fas fa-copy"></i> Copy BibTeX</button>
@@ -1496,7 +1359,7 @@
                 <div class="bibtex-dropdown" id="bibtex-fdcti2i">
                     <div class="bibtex-content">@article{corbaz2025towards,
                         title={Towards Diagnostic Quality Flat-Panel Detector CT Imaging Using Diffusion Models},
-                        author={Corbaz, H{\'e}l{\`e}ne and Nguyen, Anh and Schulze-Zachau, Victor and Friedrich, Paul and Durrer, Alicia and Bieder, Florentin and Cattin, Philippe C and Psycogios, Marios N},
+                        author={Corbaz, H{\'e}l{\`e}ne and Nguyen, Anh and Schulze-Zachau, Victor and Friedrich, Paul and Durrer, Alicia and Bieder, Florentin and Cattin, Philippe C and Psychogios, Marios N},
                         journal={arXiv preprint arXiv:2508.16252},
                         year={2025}}</div>
                     <button class="copy-button" data-target="bibtex-fdcti2i"><i class="fas fa-copy"></i> Copy BibTeX</button>
@@ -1557,7 +1420,7 @@
         <!-- Publication: Generating 3D Pseudo-Healthy Knee -->
         <div class="publication" data-year="2025">
             <div class="publication-content">
-                <div class="publication-title">Generating 3D Pseudo-Healthy Knee-MR Images to Support Trochleoplasty Planning</div>
+                <div class="publication-title">Generating 3D Pseudo-Healthy Knee MR Images to Support Trochleoplasty Planning</div>
                 <div class="publication-authors">Michael Wehrli, Alicia Durrer, <b>Paul Friedrich</b>, Volodimir Buchakchiyskiy, Marcus Mumme, Edwin Li, Gyozo Lehoczky, Carol C. Hasler, Philippe C. Cattin</div>
                 <div class="publication-journal">IPCAI (Early Accepted) | International Journal of Computer Assisted Radiology and Surgery, 2025</div>
                 <div class="publication-links">
@@ -1695,7 +1558,7 @@
                 <div class="bibtex-dropdown" id="bibtex-brainprog">
                     <div class="bibtex-content">@inproceedings{bieder2024modeling,
                         title={Modeling the Neonatal Brain Development Using Implicit Neural Representations},
-                        author={Bieder, Florentin and Friedrich, Paul and Corbaz, H{\'e}l{\`e}ne and Durrer, Alicia and Wolleb, Julia and C. Cattin, Philippe},
+                        author={Bieder, Florentin and Friedrich, Paul and Corbaz, H{\'e}l{\`e}ne and Durrer, Alicia and Wolleb, Julia and Cattin, Philippe C},
                         booktitle={International Workshop on PRedictive Intelligence In MEdicine},
                         pages={1--11},
                         year={2024},
@@ -1861,6 +1724,14 @@
     <div class="container fade-in">
         <h2>Invited Talks</h2>
         <div class="event-card">
+            <div class="publication-title">MedMCP: An Open Agentic Ecosystem for Medical Imaging Workflows</div>
+            <div class="event-venue">ESC Digital &amp; AI Summit 2026 · Symposium "Agency is all you need? Agentic AI and dynamic learning" · Basel, Switzerland · November 12, 2026</div>
+            <div class="publication-links">
+                <a href="https://esc365.escardio.org/ESC-Digital-AI-Summit/sessions/20865-agency-is-all-you-need-agentic-ai-and-dynamic-learning"><i class="fas fa-calendar-alt icon-spacing"></i>Session</a>
+                <a href="https://medmcp.ai"><i class="fas fa-globe icon-spacing"></i>MedMCP</a>
+            </div>
+        </div>
+        <div class="event-card">
             <div class="publication-title">Diffusion Models for Medical Image Analysis</div>
             <div class="event-venue">Technical University of Munich, Lab for AI in Medicine · Invited by Daniel Rückert · 2024</div>
             <div class="publication-links">
@@ -1870,7 +1741,7 @@
     </div>
 </section>
 
-<!-- ── NEW: ORGANIZED EVENTS SECTION ── -->
+<!-- ── ORGANIZED EVENTS ── -->
 <section id="organized-events">
     <div class="container fade-in">
         <h2>Organized Events</h2>
